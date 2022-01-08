@@ -81,7 +81,7 @@ class _UserProfileState extends State<UserProfile> {
                   ],
                 )),
             Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 80, 10),
+              margin: EdgeInsets.fromLTRB(15, 0, 80, 10),
               child: Column(
                 children: [
                   ListTile(
@@ -94,6 +94,38 @@ class _UserProfileState extends State<UserProfile> {
                     ),
                     subtitle: Text(
                       'Lai Khải',
+                      style: GoogleFonts.quicksand(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                  ListTile(
+                    title: Text(
+                      'Email',
+                      style: GoogleFonts.quicksand(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey),
+                    ),
+                    subtitle: Text(
+                      '0306191036@caothang.edu.vn',
+                      style: GoogleFonts.quicksand(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                  ),
+                  ListTile(
+                    title: Text(
+                      'Số điện thoại',
+                      style: GoogleFonts.quicksand(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey),
+                    ),
+                    subtitle: Text(
+                      '0703756499',
                       style: GoogleFonts.quicksand(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
