@@ -1,3 +1,4 @@
+import 'package:VietNamTravel/UserProfile.dart/User_Profile.dart';
 import 'package:VietNamTravel/screen/home/homescreen.dart';
 import 'package:VietNamTravel/screen/login/loginscreen.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
           selectionHandleColor: kBackgroundColor,
         ),
       ),
-      home: SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

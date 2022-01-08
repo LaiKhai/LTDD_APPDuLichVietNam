@@ -9,7 +9,8 @@ import 'package:http/http.dart' as http;
 import '../../../constants.dart';
 
 class LoginProvider {
-  signIn(BuildContext context, String email, String password) async {
+  Future<void> signIn(
+      BuildContext context, String email, String password) async {
     String url = 'http://192.168.1.5:80/api/login';
 
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
