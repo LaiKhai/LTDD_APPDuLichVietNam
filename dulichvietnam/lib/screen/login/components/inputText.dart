@@ -64,6 +64,7 @@ class _InputTextState extends State<InputText> {
           padding: EdgeInsets.fromLTRB(40, 10, 40, 40),
           child: TextField(
             controller: _pascontroller,
+            obscureText: true,
             keyboardType: TextInputType.visiblePassword,
             decoration: InputDecoration(
               focusedBorder: UnderlineInputBorder(
@@ -137,7 +138,10 @@ class _InputTextState extends State<InputText> {
             child: Padding(
           padding: EdgeInsets.only(top: 10),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RegisterScreen()));
+            },
             child: Text('Đăng Ký',
                 style: GoogleFonts.quicksand(
                     fontWeight: FontWeight.w600, color: Colors.white)),
