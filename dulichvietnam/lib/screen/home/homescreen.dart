@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: kBackgroundColor,
         actions: [
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 0, 80, 0),
+            padding: EdgeInsets.fromLTRB(20, 0, 90, 0),
             child: SvgPicture.asset(
               assetLogo,
               color: Colors.white,
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             width: 50,
           ),
           Container(
-              margin: EdgeInsets.fromLTRB(5, 20, 5, 0),
+              padding: EdgeInsets.fromLTRB(5, 20, 5, 10),
               child: MaterialButton(
                   onPressed: () {
                     Navigator.push(context,
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             'assets/images/avatar_test.jpg',
                           )),
                       SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
                       Text(
                         "Lai Khải",

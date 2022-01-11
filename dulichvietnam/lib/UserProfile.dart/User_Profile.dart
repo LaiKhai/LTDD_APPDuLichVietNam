@@ -1,9 +1,14 @@
+import 'package:VietNamTravel/UserProfile.dart/User_PostCard.dart';
 import 'package:VietNamTravel/UserProfile.dart/User_childBody_1.dart';
 import 'package:VietNamTravel/UserProfile.dart/User_headerBody.dart';
 import 'package:VietNamTravel/constants.dart';
 import 'package:VietNamTravel/screen/home/components/Home_ListTitle.dart';
+import 'package:VietNamTravel/screen/login/loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'User_ProfileChild.dart';
 
 class UserProfile extends StatefulWidget {
   const UserProfile({Key? key}) : super(key: key);
@@ -34,7 +39,15 @@ class _UserProfileState extends State<UserProfile> {
                 width: 45,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () async {
+                  SharedPreferences pref =
+                      await SharedPreferences.getInstance();
+                  pref.clear();
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                      (route) => false);
+                },
                 icon: Icon(Icons.logout_rounded, color: Colors.white),
               )
             ],
@@ -80,61 +93,20 @@ class _UserProfileState extends State<UserProfile> {
                         ))
                   ],
                 )),
+            User_ProfileChild(),
             Container(
-              margin: EdgeInsets.fromLTRB(15, 0, 80, 10),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text(
-                      'tên tài khoản',
+              margin: EdgeInsets.fromLTRB(0, 0, 120, 5),
+              child: TextButton(
+                  onPressed: () {},
+                  child: Text('Danh sách bài viết',
                       style: GoogleFonts.quicksand(
-                          fontSize: 15,
+                          fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey),
-                    ),
-                    subtitle: Text(
-                      'Lai Khải',
-                      style: GoogleFonts.quicksand(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      'Email',
-                      style: GoogleFonts.quicksand(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey),
-                    ),
-                    subtitle: Text(
-                      '0306191036@caothang.edu.vn',
-                      style: GoogleFonts.quicksand(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      'Số điện thoại',
-                      style: GoogleFonts.quicksand(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey),
-                    ),
-                    subtitle: Text(
-                      '0703756499',
-                      style: GoogleFonts.quicksand(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                  )
-                ],
-              ),
-            )
+                          color: Colors.black))),
+            ),
+            User_PostCard(size: size),
+            User_PostCard(size: size),
+            User_PostCard(size: size),
           ],
         ),
       ),

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           selectionHandleColor: kBackgroundColor,
         ),
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }
