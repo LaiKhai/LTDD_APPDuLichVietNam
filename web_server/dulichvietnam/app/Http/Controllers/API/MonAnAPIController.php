@@ -7,14 +7,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MonAn;
 
-class MonAnController extends Controller
+class MonAnAPIController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $monan = MonAn::all();
         $response =[
             'message'=>'Success',
             'data'=>$monan,
         ];
-        return response()->json($response,200);
+      
+        return response()->json($response,200); 
     }
 }

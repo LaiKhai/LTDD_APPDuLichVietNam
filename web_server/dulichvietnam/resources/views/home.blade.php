@@ -8,8 +8,8 @@ Danh sách thông tin người dùng
     <h3 class="page-title">@yield('title')</h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Tables</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+            <li class="breadcrumb-item"><a href="#">Dashboar</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Thông tin người dùng</li>
         </ol>
     </nav>
 </div>
@@ -17,117 +17,59 @@ Danh sách thông tin người dùng
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Striped Table</h4>
-                <p class="card-description"> Add class <code>.table-striped</code>
+                <h4 class="card-title">Thông tin người dùng</h4>
                 </p>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th> User </th>
-                            <th> First name </th>
-                            <th> Progress </th>
-                            <th> Amount </th>
-                            <th> Deadline </th>
+                            <th> ID </th>
+                            <th> Hình Ảnh </th>
+                            <th> Họ Tên </th>
+                            <th> Email </th>
+                            <th> SĐT </th>
+                            <th> Phân quyền </th>
+                            <th> Trạng thái </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
                             <td class="py-1">
                                 <img src="admin_view/assets/images/faces-clipart/pic1.jpg" alt="image" />
                             </td>
-                            <td> Herman Beck </td>
+                            <td>Lai Khải</td>
                             <td>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
-                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                Laihongkhai5@gmail.com
                             </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
+                            <td>0703756400</td>
+                            <td>User</td>
+                            <td><span class="badge bg-success">Tồn tại</span></td>
                         </tr>
                         <tr>
+                            <td>2</td>
                             <td class="py-1">
                                 <img src="admin_view/assets/images/faces-clipart/pic2.jpg" alt="image" />
                             </td>
-                            <td> Messsy Adam </td>
+                            <td>Lai Khải 2</td>
                             <td>
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 75%"
-                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                Laihongkhai6@gmail.com
                             </td>
-                            <td> $245.30 </td>
-                            <td> July 1, 2015 </td>
+                            <td>0703756400</td>
+                            <td>User</td>
+                            <td><span class="badge bg-danger">Đã xóa</span></td>
                         </tr>
                         <tr>
+                            <td>3</td>
                             <td class="py-1">
                                 <img src="admin_view/assets/images/faces-clipart/pic3.jpg" alt="image" />
                             </td>
-                            <td> John Richards </td>
+                            <td>Lai Khải 3</td>
                             <td>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 90%"
-                                        aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                Laihongkhai7@gmail.com
                             </td>
-                            <td> $138.00 </td>
-                            <td> Apr 12, 2015 </td>
-                        </tr>
-                        <tr>
-                            <td class="py-1">
-                                <img src="admin_view/assets/images/faces-clipart/pic-4.png" alt="image" />
-                            </td>
-                            <td> Peter Meggik </td>
-                            <td>
-                                <div class="progress">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%"
-                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
-                        </tr>
-                        <tr>
-                            <td class="py-1">
-                                <img src="admin_view/assets/images/faces-clipart/pic-1.png" alt="image" />
-                            </td>
-                            <td> Edward </td>
-                            <td>
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 35%"
-                                        aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </td>
-                            <td> $ 160.25 </td>
-                            <td> May 03, 2015 </td>
-                        </tr>
-                        <tr>
-                            <td class="py-1">
-                                <img src="admin_view/assets/images/faces-clipart/pic-2.png" alt="image" />
-                            </td>
-                            <td> John Doe </td>
-                            <td>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%"
-                                        aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </td>
-                            <td> $ 123.21 </td>
-                            <td> April 05, 2015 </td>
-                        </tr>
-                        <tr>
-                            <td class="py-1">
-                                <img src="admin_view/assets/images/faces-clipart/pic-3.png" alt="image" />
-                            </td>
-                            <td> Henry Tom </td>
-                            <td>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 20%"
-                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </td>
-                            <td> $ 150.00 </td>
-                            <td> June 16, 2015 </td>
+                            <td>0703756400</td>
+                            <td>User</td>
+                            <td><span class="badge bg-warning">tạm khóa</span></td>
                         </tr>
                     </tbody>
                 </table>

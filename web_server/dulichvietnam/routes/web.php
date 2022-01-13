@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MonAnController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +18,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class,'index']);
 
 Route::get('login',[LoginController::class,'show'])->name('login');
+Route::prefix('admin')->group(function () {
+    Route::resource('monan', [MonAnController::class]);
+});

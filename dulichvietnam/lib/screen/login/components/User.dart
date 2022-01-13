@@ -6,13 +6,15 @@ class User {
   final String hoten;
   final String sdt;
   final String hinhanh;
+  final String token;
 
-  User(this.id, this.email, this.hoten, this.sdt, this.hinhanh);
+  User(this.id, this.email, this.hoten, this.sdt, this.hinhanh, this.token);
 
   User.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        email = json['email'],
-        hoten = json['hoten'],
-        sdt = json['sdt'],
-        hinhanh = json['hinhanh'];
+      : id = json['data']['id'],
+        email = json['data']['email'],
+        hoten = json['data']['hoten'],
+        sdt = json['data']['sdt'],
+        hinhanh = json['data']['hinhanh'],
+        token = json['token'];
 }
