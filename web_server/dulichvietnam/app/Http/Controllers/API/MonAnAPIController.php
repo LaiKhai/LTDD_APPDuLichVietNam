@@ -11,10 +11,7 @@ class MonAnAPIController extends Controller
 {
     public function index(Request $request){
         $monan = MonAn::all();
-        $response =[
-            'message'=>'Success',
-            'data'=>$monan,
-        ];
+        $response =$monan;
       
         return response()->json($response,200); 
     }

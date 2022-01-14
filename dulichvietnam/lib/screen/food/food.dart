@@ -1,3 +1,7 @@
+import 'package:VietNamTravel/ApiResponse.dart';
+import 'package:VietNamTravel/screen/food/FoodList.dart';
+import 'package:VietNamTravel/screen/food/FoodProvider.dart';
+import 'package:VietNamTravel/screen/food/MealObject.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:VietNamTravel/constants.dart';
@@ -11,197 +15,6 @@ class FoodPage extends StatefulWidget {
 }
 
 class _FoodPageState extends State<FoodPage> {
-  Widget food1 = Row(
-    children: [
-      Column(
-        children: [
-          Container(
-            padding: EdgeInsets.only(right: 10),
-            child: Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.zero,
-                    width: 200,
-                    height: 150,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(11),
-                      child: Image.asset(
-                        'assets/restaurent/image1.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Bánh xèo',
-                      style: GoogleFonts.quicksand(
-                          color: Colors.black,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Bánh xèo beo\nbéo thơm ngon....',
-                      style: GoogleFonts.quicksand(
-                        color: Colors.black,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-      Column(
-        children: [
-          Container(
-            child: Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.zero,
-                    width: 200,
-                    height: 150,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(11),
-                      child: Image.asset(
-                        'assets/restaurent/image1.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Bánh xèo',
-                      style: GoogleFonts.quicksand(
-                          color: Colors.black,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Bánh xèo beo béo\nthơm ngon....',
-                      style: GoogleFonts.quicksand(
-                        color: Colors.black,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      )
-    ],
-  );
-  Widget food2 = Row(
-    children: [
-      Column(
-        children: [
-          Container(
-            padding: EdgeInsets.only(right: 10),
-            child: Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.zero,
-                    width: 200,
-                    height: 150,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(11),
-                      child: Image.asset(
-                        'assets/restaurent/image1.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Bánh xèo',
-                      style: GoogleFonts.quicksand(
-                          color: Colors.black,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Bánh xèo beo\nbéo thơm ngon....',
-                      style: GoogleFonts.quicksand(
-                        color: Colors.black,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-      Column(
-        children: [
-          Container(
-            child: Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.zero,
-                    width: 200,
-                    height: 150,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(11),
-                      child: Image.asset(
-                        'assets/restaurent/image1.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Bánh xèo',
-                      style: GoogleFonts.quicksand(
-                          color: Colors.black,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Bánh xèo beo béo\nthơm ngon....',
-                      style: GoogleFonts.quicksand(
-                        color: Colors.black,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      )
-    ],
-  );
-
   @override
   Widget build(BuildContext context) {
     Widget timkiem = Expanded(
@@ -225,7 +38,12 @@ class _FoodPageState extends State<FoodPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Center(
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+        title: Container(
+          margin: EdgeInsets.only(left: 50),
           child: Text(
             'Danh sách món ăn',
             style: GoogleFonts.quicksand(
@@ -233,21 +51,15 @@ class _FoodPageState extends State<FoodPage> {
           ),
         ),
       ),
-      body: Center(
-        child: ListView(
-          padding: EdgeInsets.all(30),
-          children: [
-            timkiem,
-            SizedBox(
-              width: 10,
-            ),
-            food1,
-            SizedBox(
-              height: 10,
-            ),
-            food2,
-          ],
-        ),
+      body: FutureBuilder<List<MealObject>>(
+        future: FoodProvider.fetchMeal(),
+        builder: (context, snapshot) {
+          print(FoodProvider.fetchMeal());
+          if (snapshot.hasData) {
+            return FoodList(lstMeal: snapshot.data!);
+          }
+          return CircularProgressIndicator();
+        },
       ),
       floatingActionButton: new FloatingActionButton(
         backgroundColor: kBackgroundColor,

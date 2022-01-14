@@ -18,6 +18,4 @@ use App\Http\Controllers\MonAnController;
 Route::get('/', [HomeController::class,'index']);
 
 Route::get('login',[LoginController::class,'show'])->name('login');
-Route::prefix('admin')->group(function () {
-    Route::resource('monan', [MonAnController::class]);
-});
+Route::get('monan', [MonAnController::class,'index']);

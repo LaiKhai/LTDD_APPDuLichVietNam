@@ -1,5 +1,6 @@
 import 'package:VietNamTravel/UserProfile.dart/User_Profile.dart';
 import 'package:VietNamTravel/constants.dart';
+import 'package:VietNamTravel/screen/Post/PostScreen.dart';
 import 'package:VietNamTravel/screen/home/Body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,9 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final tabs = [
       Body(),
-      Center(
-        child: Text('Hello'),
-      ),
+      PostScreen(),
       Center(
         child: Text('Hello2'),
       ),
