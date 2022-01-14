@@ -1,3 +1,4 @@
+import 'package:VietNamTravel/UserProfile.dart/User_Profile.dart';
 import 'package:VietNamTravel/constants.dart';
 import 'package:VietNamTravel/screen/home/Body.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: kBackgroundColor,
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 100),
+            padding: EdgeInsets.fromLTRB(20, 0, 90, 0),
             child: SvgPicture.asset(
               assetLogo,
               color: Colors.white,
@@ -44,24 +45,29 @@ class _HomeScreenState extends State<HomeScreen> {
             width: 50,
           ),
           Container(
-              margin: EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: Image.asset(
-                        'assets/images/avatar_test.jpg',
-                      )),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Lai Khải",
-                    style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.bold, color: Colors.white),
-                  ),
-                ],
-              ))
+              padding: EdgeInsets.fromLTRB(5, 20, 5, 10),
+              child: MaterialButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => UserProfile()));
+                  },
+                  child: Row(
+                    children: [
+                      ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: Image.asset(
+                            'assets/images/avatar_test.jpg',
+                          )),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Lai Khải",
+                        style: GoogleFonts.quicksand(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                      ),
+                    ],
+                  ))),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
