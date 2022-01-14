@@ -39,6 +39,7 @@ dependencies:
   carousel_slider: ^4.0.0
   cached_network_image: ^3.2.0
   http: ^0.13.4
+  path: ^1.8.0 
   shared_preferences: ^2.0.11
   image_picker: ^0.8.4+4
   smooth_page_indicator: ^1.0.0+2
