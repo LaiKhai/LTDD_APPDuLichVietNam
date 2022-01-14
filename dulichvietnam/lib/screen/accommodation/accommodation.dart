@@ -50,51 +50,55 @@ class _AccommationScreenState extends State<AccommationScreen> {
         child: FutureBuilder<List<LuuTru>>(
             future: LuuTruProvider.fetchPosts(),
             builder: (context, snapshot) {
+              print(snapshot.data);
               if (snapshot.hasData) {
-                return Column(
-                  children: [
-                    ListView(
-                      padding: EdgeInsets.all(30),
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 20, right: 20),
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.grey),
-                            borderRadius: BorderRadius.circular(27),
-                          ),
-                          child: DropdownButton(
-                            hint: Text('Chọn nơi lưu trú'),
-                            dropdownColor: Colors.white,
-                            icon: Icon(Icons.arrow_drop_down),
-                            iconSize: 36,
-                            isExpanded: true,
-                            underline: SizedBox(),
-                            style: GoogleFonts.quicksand(),
-                            value: _valueChoose,
-                            onChanged: (String? newValue) {
-                              if (newValue != null)
-                                setState(() => _valueChoose = newValue);
-                            },
-                            items: listItem.map((Map map) {
-                              return DropdownMenuItem(
-                                value: map['id'].toString(),
-                                child: Text(map['name']),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Hotel(lsLuuTru: snapshot.data!),
-                        SizedBox(
-                          height: 10,
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              } else if (snapshot.hasError) {
+                return Hotel(lsLuuTru: snapshot.data!);
+              }
+              //   Column(
+              //     children: [
+              //       ListView(
+              //         padding: EdgeInsets.all(30),
+              //         children: [
+              //           Container(
+              //             padding: EdgeInsets.only(left: 20, right: 20),
+              //             decoration: BoxDecoration(
+              //               border: Border.all(width: 1, color: Colors.grey),
+              //               borderRadius: BorderRadius.circular(27),
+              //             ),
+              //             child: DropdownButton(
+              //               hint: Text('Chọn nơi lưu trú'),
+              //               dropdownColor: Colors.white,
+              //               icon: Icon(Icons.arrow_drop_down),
+              //               iconSize: 36,
+              //               isExpanded: true,
+              //               underline: SizedBox(),
+              //               style: GoogleFonts.quicksand(),
+              //               value: _valueChoose,
+              //               onChanged: (String? newValue) {
+              //                 if (newValue != null)
+              //                   setState(() => _valueChoose = newValue);
+              //               },
+              //               items: listItem.map((Map map) {
+              //                 return DropdownMenuItem(
+              //                   value: map['id'].toString(),
+              //                   child: Text(map['name']),
+              //                 );
+              //               }).toList(),
+              //             ),
+              //           ),
+              //           SizedBox(
+              //             height: 10,
+              //           ),
+              //           Hotel(lsLuuTru: snapshot.data!),
+              //           SizedBox(
+              //             height: 10,
+              //           ),
+              //         ],
+              //       ),
+              //     ],
+              //   );
+              // }
+              else if (snapshot.hasError) {
                 return Center(
                   child: Text('Có lỗi rầu nha m'),
                 );

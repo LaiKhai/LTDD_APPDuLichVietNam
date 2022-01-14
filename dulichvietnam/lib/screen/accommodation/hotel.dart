@@ -27,7 +27,8 @@ class Hotel extends StatelessWidget {
                         height: 100,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(11),
-                          child: Image.network(lsLuuTru[index].hinhanh),
+                          child: Image.network(
+                              'https://image.freepik.com/free-photo/vacation-stone-vietnam-fresh-green-china_1417-1360.jp'),
                         ),
                       ),
 

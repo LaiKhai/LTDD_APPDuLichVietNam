@@ -5997,3 +5997,226 @@
 #57 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\server.php(21): require_once('D:\\\\HocTap\\\\HKIV\\\\...')
 #58 {main}
 "} 
+[2022-01-14 16:39:46] local.ERROR: Command "make:migrate" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:migrate\" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:seeder
+    make:test at D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\symfony\\console\\Application.php:709)
+[stacktrace]
+#0 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\symfony\\console\\Application.php(259): Symfony\\Component\\Console\\Application->find('make:migrate')
+#1 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(94): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2022-01-14 17:00:12] local.ERROR: syntax error, unexpected 'return' (T_RETURN), expecting ']' {"exception":"[object] (ParseError(code: 0): syntax error, unexpected 'return' (T_RETURN), expecting ']' at D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\app\\Http\\Controllers\\API\\LuuTruController.php:17)
+[stacktrace]
+#0 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile('D:\\\\HocTap\\\\HKIV\\\\...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Contro...')
+#2 [internal function]: spl_autoload_call('App\\\\Http\\\\Contro...')
+#3 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#4 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#5 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array, true)
+#6 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('App\\\\Http\\\\Contro...', Array)
+#7 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#8 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(276): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#9 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1069): Illuminate\\Routing\\Route->getController()
+#10 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1012): Illuminate\\Routing\\Route->controllerMiddleware()
+#11 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(708): Illuminate\\Routing\\Route->gatherMiddleware()
+#12 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(688): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#13 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(672): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#14 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(636): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#15 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(625): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#16 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#17 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#18 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php(52): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#35 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#36 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\server.php(21): require_once('D:\\\\HocTap\\\\HKIV\\\\...')
+#37 {main}
+"} 
+[2022-01-14 17:00:34] local.ERROR: syntax error, unexpected 'return' (T_RETURN), expecting ']' {"exception":"[object] (ParseError(code: 0): syntax error, unexpected 'return' (T_RETURN), expecting ']' at D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\app\\Http\\Controllers\\API\\LuuTruController.php:17)
+[stacktrace]
+#0 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile('D:\\\\HocTap\\\\HKIV\\\\...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Contro...')
+#2 [internal function]: spl_autoload_call('App\\\\Http\\\\Contro...')
+#3 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#4 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#5 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array, true)
+#6 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('App\\\\Http\\\\Contro...', Array)
+#7 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#8 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(276): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#9 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1069): Illuminate\\Routing\\Route->getController()
+#10 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1012): Illuminate\\Routing\\Route->controllerMiddleware()
+#11 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(708): Illuminate\\Routing\\Route->gatherMiddleware()
+#12 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(688): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#13 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(672): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#14 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(636): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#15 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(625): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#16 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#17 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#18 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php(52): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#35 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#36 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\server.php(21): require_once('D:\\\\HocTap\\\\HKIV\\\\...')
+#37 {main}
+"} 
+[2022-01-14 17:00:44] local.ERROR: syntax error, unexpected 'return' (T_RETURN), expecting ']' {"exception":"[object] (ParseError(code: 0): syntax error, unexpected 'return' (T_RETURN), expecting ']' at D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\app\\Http\\Controllers\\API\\LuuTruController.php:17)
+[stacktrace]
+#0 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile('D:\\\\HocTap\\\\HKIV\\\\...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Contro...')
+#2 [internal function]: spl_autoload_call('App\\\\Http\\\\Contro...')
+#3 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#4 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#5 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array, true)
+#6 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('App\\\\Http\\\\Contro...', Array)
+#7 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#8 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(276): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#9 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1069): Illuminate\\Routing\\Route->getController()
+#10 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1012): Illuminate\\Routing\\Route->controllerMiddleware()
+#11 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(708): Illuminate\\Routing\\Route->gatherMiddleware()
+#12 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(688): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#13 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(672): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#14 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(636): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#15 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(625): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#16 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#17 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#18 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php(52): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#35 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#36 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\server.php(21): require_once('D:\\\\HocTap\\\\HKIV\\\\...')
+#37 {main}
+"} 
+[2022-01-14 17:01:14] local.ERROR: syntax error, unexpected 'return' (T_RETURN), expecting ']' {"exception":"[object] (ParseError(code: 0): syntax error, unexpected 'return' (T_RETURN), expecting ']' at D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\app\\Http\\Controllers\\API\\LuuTruController.php:17)
+[stacktrace]
+#0 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\composer\\ClassLoader.php(428): Composer\\Autoload\\includeFile('D:\\\\HocTap\\\\HKIV\\\\...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('App\\\\Http\\\\Contro...')
+#2 [internal function]: spl_autoload_call('App\\\\Http\\\\Contro...')
+#3 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(877): ReflectionClass->__construct('App\\\\Http\\\\Contro...')
+#4 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(758): Illuminate\\Container\\Container->build('App\\\\Http\\\\Contro...')
+#5 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): Illuminate\\Container\\Container->resolve('App\\\\Http\\\\Contro...', Array, true)
+#6 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(694): Illuminate\\Foundation\\Application->resolve('App\\\\Http\\\\Contro...', Array)
+#7 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(836): Illuminate\\Container\\Container->make('App\\\\Http\\\\Contro...', Array)
+#8 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(276): Illuminate\\Foundation\\Application->make('App\\\\Http\\\\Contro...')
+#9 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1069): Illuminate\\Routing\\Route->getController()
+#10 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1012): Illuminate\\Routing\\Route->controllerMiddleware()
+#11 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(708): Illuminate\\Routing\\Route->gatherMiddleware()
+#12 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(688): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#13 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(672): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#14 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(636): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#15 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(625): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#16 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#17 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#18 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\fruitcake\\laravel-cors\\src\\HandleCors.php(52): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(167): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#34 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#35 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#36 D:\\HocTap\\HKIV\\Android_flutter\\DO_AN_MON_HOC\\LTDD_APPDuLichVietNam\\web_server\\dulichvietnam\\server.php(21): require_once('D:\\\\HocTap\\\\HKIV\\\\...')
+#37 {main}
+"} 

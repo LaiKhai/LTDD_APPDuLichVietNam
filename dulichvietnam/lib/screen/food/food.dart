@@ -1,4 +1,3 @@
-import 'package:VietNamTravel/ApiResponse.dart';
 import 'package:VietNamTravel/screen/food/FoodList.dart';
 import 'package:VietNamTravel/screen/food/FoodProvider.dart';
 import 'package:VietNamTravel/screen/food/MealObject.dart';
