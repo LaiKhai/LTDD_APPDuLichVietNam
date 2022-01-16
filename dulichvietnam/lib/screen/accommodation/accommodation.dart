@@ -28,16 +28,6 @@ class _AccommationScreenState extends State<AccommationScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.keyboard_arrow_left,
-            size: 40,
-            color: Colors.black,
-          ),
-        ),
         title: Center(
           child: Text(
             'Danh sách nơi lưu trú',
@@ -100,7 +90,7 @@ class _AccommationScreenState extends State<AccommationScreen> {
               // }
               else if (snapshot.hasError) {
                 return Center(
-                  child: Text('Có lỗi rầu nha m'),
+                  child: Text('Có lỗi rồi'),
                 );
               }
               return Center(child: CircularProgressIndicator());

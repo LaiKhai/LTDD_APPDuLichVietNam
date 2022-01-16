@@ -43,6 +43,7 @@ dependencies:
   shared_preferences: ^2.0.11
   image_picker: ^0.8.4+4
   smooth_page_indicator: ^1.0.0+2
+  network_to_file_image: ^3.1.0
 
 dev_dependencies:
   flutter_test:

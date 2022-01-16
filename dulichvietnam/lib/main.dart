@@ -1,7 +1,4 @@
-import 'package:VietNamTravel/UserProfile.dart/User_Profile.dart';
-import 'package:VietNamTravel/screen/home/homescreen.dart';
-import 'package:VietNamTravel/screen/login/loginscreen.dart';
-import 'package:VietNamTravel/screen/accommodation/accommodation.dart';
+import 'package:VietNamTravel/screen/restaurent/retaurents.dart';
 import 'package:flutter/material.dart';
 import 'screen/splash/splashscreen.dart';
 import 'package:VietNamTravel/constants.dart';
@@ -26,7 +23,7 @@ class MyApp extends StatelessWidget {
           selectionHandleColor: kBackgroundColor,
         ),
       ),
-      home: HomeScreen(),
+      home: RestaurentScreen(),
     );
   }
 }
