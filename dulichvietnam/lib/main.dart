@@ -1,4 +1,3 @@
-import 'package:VietNamTravel/screen/restaurent/retaurents.dart';
 import 'package:flutter/material.dart';
 import 'screen/splash/splashscreen.dart';
 import 'package:VietNamTravel/constants.dart';
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
           selectionHandleColor: kBackgroundColor,
         ),
       ),
-      home: RestaurentScreen(),
+      home: SplashScreen(),
     );
   }
 }
