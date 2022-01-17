@@ -3,6 +3,7 @@ import 'package:VietNamTravel/UserProfile.dart/User_childBody_1.dart';
 import 'package:VietNamTravel/UserProfile.dart/User_headerBody.dart';
 import 'package:VietNamTravel/constants.dart';
 import 'package:VietNamTravel/screen/home/components/Home_ListTitle.dart';
+import 'package:VietNamTravel/screen/login/components/LoginProvider.dart';
 import 'package:VietNamTravel/screen/login/loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +19,7 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
+  LoginProvider logout = new LoginProvider();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -42,6 +44,8 @@ class _UserProfileState extends State<UserProfile> {
                 onPressed: () async {
                   SharedPreferences pref =
                       await SharedPreferences.getInstance();
+                  logout.Logout();
+                  print(logout.Logout());
                   pref.clear();
                   Navigator.pushAndRemoveUntil(
                       context,
