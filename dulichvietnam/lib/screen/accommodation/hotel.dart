@@ -21,14 +21,15 @@ class Hotel extends StatelessWidget {
                     children: [
                       // Load hình ảnh
                       Container(
-                        alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.zero,
-                        width: 150,
-                        height: 100,
+                        padding: EdgeInsets.only(left: 5, right: 5),
+                        width: 100,
+                        height: 90,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(11),
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: Image.network(
-                              'https://image.freepik.com/free-photo/vacation-stone-vietnam-fresh-green-china_1417-1360.jp'),
+                            lsLuuTru[index].hinhanh,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
 
@@ -40,13 +41,17 @@ class Hotel extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            lsLuuTru[index].ten,
-                            style: GoogleFonts.quicksand(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
+                          Container(
+                            child: Text(
+                              lsLuuTru[index].ten,
+                              softWrap: true,
+                              style: GoogleFonts.quicksand(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
+
                           SizedBox(
                             width: 4,
                             height: 4,
@@ -58,12 +63,18 @@ class Hotel extends StatelessWidget {
                                 color: Colors.orange,
                                 size: 15,
                               ),
-                              Text(
-                                lsLuuTru[index].diachi,
-                                style: GoogleFonts.quicksand(
-                                    color: kTextColor,
-                                    fontSize: 9,
-                                    fontWeight: FontWeight.bold),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Container(
+                                child: Text(
+                                  lsLuuTru[index].diachi,
+                                  softWrap: true,
+                                  style: GoogleFonts.quicksand(
+                                      color: kTextColor,
+                                      fontSize: 9,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ],
                           ),
@@ -77,7 +88,10 @@ class Hotel extends StatelessWidget {
                               Icon(
                                 Icons.phone,
                                 color: Colors.greenAccent[400],
-                                size: 10,
+                                size: 15,
+                              ),
+                              SizedBox(
+                                width: 4,
                               ),
                               Text(
                                 lsLuuTru[index].sdt,
@@ -100,6 +114,9 @@ class Hotel extends StatelessWidget {
                                 color: Colors.red,
                                 size: 15,
                               ),
+                              SizedBox(
+                                width: 4,
+                              ),
                               Text(
                                 'Bình Định',
                                 style: GoogleFonts.quicksand(
@@ -111,18 +128,19 @@ class Hotel extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      /*SizedBox(
                         width: 2,
                         height: 4,
                       ),
                       Container(
+                        padding: EdgeInsets.only(right: 5),
                         child: IconButton(
                             icon: Icon(
                               Icons.more_horiz,
-                              size: 10,
+                              size: 18,
                             ),
                             onPressed: () {}),
-                      ),
+                      ),*/
                     ],
                   ),
                 ),
