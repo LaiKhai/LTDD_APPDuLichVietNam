@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Monan extends Migration
+class Baiviet extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class Monan extends Migration
      */
     public function up()
     {
-        Schema::create('mon_ans', function (Blueprint $table) {
+         Schema::create('bai_viets', function (Blueprint $table) {
             $table->id();
-            $table->string('ten',50);
-            $table->string('mota')->nullable();
-            $table->string('hinhanh')->nullable();
+            $table->string('tieude');
+            $table->string('mota');
             $table->enum('trangthai',[0,1,2]);
             $table->foreignId('dia_danhs_id');
+            $table->foreignId('user_id');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +31,6 @@ class Monan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mon_ans');
+        //
     }
 }

@@ -12,7 +12,7 @@ class FoodProvider {
 
   static Future<List<MealObject>> fetchMeal(BuildContext context) async {
     final response = await http.get(
-        Uri.parse('http://192.168.1.2:80/api/monan'),
+        Uri.parse('http://192.168.1.4:80/api/monan'),
         headers: {'Accept': 'application/json'});
     if (response.statusCode != 200) {
       final error = jsonDecode(response.body)['message'];

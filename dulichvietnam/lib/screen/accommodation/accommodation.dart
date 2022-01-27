@@ -28,6 +28,9 @@ class _AccommationScreenState extends State<AccommationScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
         title: Center(
           child: Text(
             'Danh sách nơi lưu trú',

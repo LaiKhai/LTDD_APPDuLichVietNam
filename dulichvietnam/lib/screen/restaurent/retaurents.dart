@@ -29,7 +29,9 @@ class _RestaurentScreenState extends State<RestaurentScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Icon(
             Icons.keyboard_arrow_left,
             size: 40,

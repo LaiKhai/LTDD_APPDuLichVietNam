@@ -13,7 +13,7 @@ class RestaurentProvider {
 
   static Future<List<RestaurentObject>> fetchPosts() async {
     final response = await http.get(
-        Uri.parse('http://192.168.1.5:80/api/quanan'),
+        Uri.parse('http://192.168.1.4:80/api/quanan'),
         headers: {'Accept': 'application/json'});
     return parseRestaurent(response.body);
   }
