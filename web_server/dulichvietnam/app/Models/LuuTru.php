@@ -20,4 +20,7 @@ class LuuTru extends Model
         'hinhanh',
         'trangthai'
     ];
+    public function diadanh(){
+        return $this->belongsTo(DiaDanh::class);
+    }
 }

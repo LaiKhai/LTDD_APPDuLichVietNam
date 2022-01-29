@@ -20,6 +20,7 @@ class CreateLuutrusTable extends Migration
             $table->string('sdt')->nullable();
             $table->string('hinhanh')->nullable();
             $table->enum('trangthai',[0,1,2]);
+            $table->foreignId('dia_danhs_id');
             $table->timestamps();
             $table->softDeletes();
         });

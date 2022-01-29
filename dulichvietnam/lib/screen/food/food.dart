@@ -51,13 +51,13 @@ class _FoodPageState extends State<FoodPage> {
         ),
       ),
       body: FutureBuilder<List<MealObject>>(
-        future: FoodProvider.fetchMeal(),
+        future: FoodProvider.fetchMeal(context),
         builder: (context, snapshot) {
-          print(FoodProvider.fetchMeal());
+          print(FoodProvider.fetchMeal(context));
           if (snapshot.hasData) {
             return FoodList(lstMeal: snapshot.data!);
           }
-          return CircularProgressIndicator();
+          return Center(child: CircularProgressIndicator());
         },
       ),
       floatingActionButton: new FloatingActionButton(

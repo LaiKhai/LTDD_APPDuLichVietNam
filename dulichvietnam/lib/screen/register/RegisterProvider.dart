@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 class RegisterProvider {
   Future<void> register(BuildContext context, String email, password,
       confirm_password, name) async {
-    var url = 'http://192.168.1.5:80/api/register';
+    var url = 'http://192.168.1.4:80/api/register';
     var response = await http.post(Uri.parse(url), headers: <String, String>{
       "Accept": "application/json"
     }, body: {

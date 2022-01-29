@@ -34,7 +34,7 @@ class FoodList extends StatelessWidget {
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
-                  'https://image.freepik.com/free-photo/high-angle-shot-beautiful-forest-with-lot-green-trees-enveloped-fog-new-zealand_181624-19717.jpg',
+                  lstMeal[index].hinhanh,
                   fit: BoxFit.cover,
                   width: 140,
                   height: 160,

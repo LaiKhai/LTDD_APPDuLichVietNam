@@ -7,22 +7,31 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../constants.dart';
+import 'User.dart';
 
 class LoginProvider {
+  Future<String> getToken() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('token');
+    if (token == null) return '';
+    return token;
+  }
+
   Future<void> signIn(
       BuildContext context, String email, String password) async {
-    String url = 'http://192.168.1.5:80/api/login';
+    String url = 'http://192.168.1.4:80/api/login';
 
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     Map body = {'email': email, 'password': password};
     var response = await http.post(Uri.parse(url),
         headers: <String, String>{'Accept': 'application/json'}, body: body);
     if (response.statusCode == 200) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = User.fromJson(json.decode(response.body));
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('token', jsonResponse.token);
+      Future<String?> token = LoginProvider().getToken();
+      print(token);
       print('response status:${response.statusCode}');
       print('response status:${response.body}');
-
-      sharedPreferences.setString("token", jsonResponse['token']);
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => HomeScreen()),
           (route) => false);
@@ -67,5 +76,19 @@ class LoginProvider {
             );
           });
     }
+  }
+
+  Future<void> Logout() async {
+    Future<String?> token = LoginProvider().getToken();
+    print(token);
+    var response = await http.post(
+        Uri.parse('http://192.168.1.4:80/api/logout'),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        });
+    print(response.body);
+    return jsonDecode(response.body)['message'];
   }
 }
