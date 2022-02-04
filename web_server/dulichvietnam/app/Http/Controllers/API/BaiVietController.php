@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\BaiViet;
 
 class BaiVietController extends Controller
 {
@@ -59,7 +60,16 @@ class BaiVietController extends Controller
      */
     public function show($id)
     {
-        //
+        $baiviet=BaiViet::find($id);
+        if(empty($baiviet)){
+            $response['message']='không tìm thấy bài viết';
+            return response()->json($response,404);
+        }
+        $response=[
+            'message'=>'Thành Công',
+            'data'=>$baiviet
+        ];
+        return response()->json($response,200);
     }
 
     /**
@@ -69,9 +79,30 @@ class BaiVietController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, BaiViet $baiviet)
     {
-        //
+        $input=$request->all();
+        $validator=Validator::make($input,[
+            'tieude'=>'required|string|max:255',
+            'mota'=>'required|string',
+        ]);
+        if($validator->fails()){
+            if(!empty($validator->errors())){
+                $response['data']=$validator->errors();
+            }
+            $response['message']='Vaidator Error';
+            return response()->json($response,404);
+        }
+        $baiviet->tieude=$input['tieude'];
+        $baiviet->mota=$input['mota'];
+        $baiviet->trangthai=$input['trangthai'];
+        $baiviet->dia_danhs_id=$input['dia_danhs_id'];
+        $baiviet->user_id=$input['user_id'];
+        $response=[
+            'message'=>'Success',
+            'data'=>$baiviet
+        ];
+        return response()->json($response,200);
     }
 
     /**
@@ -82,6 +113,12 @@ class BaiVietController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $baiviet=BaiViet::find($id)->delete();
+        $lstbaiviet=BaiViet::all();
+        $response=[
+            'message'=>'Success',
+            'data'=>$lstbaiviet
+        ];
+        return response()->json($response,200);
     }
 }

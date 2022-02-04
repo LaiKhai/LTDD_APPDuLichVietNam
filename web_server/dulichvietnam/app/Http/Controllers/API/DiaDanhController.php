@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\DiaDanh;
 use Illuminate\Support\Facades\Validator;
 
+
 class DiaDanhController extends Controller
 {
     public function index(){

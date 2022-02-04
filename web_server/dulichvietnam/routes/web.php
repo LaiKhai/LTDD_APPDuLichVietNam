@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MonAnController;
+use App\Http\Controllers\DiaDanhController;
+use App\Http\Controllers\VungMienController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +20,6 @@ use App\Http\Controllers\MonAnController;
 Route::get('/', [HomeController::class,'index']);
 
 Route::get('login',[LoginController::class,'show'])->name('login');
-Route::get('monan', [MonAnController::class,'index']);
+Route::resource('monan', MonAnController::class);
+Route::resource('diadanh', DiaDanhController::class);
+Route::resource('vungmien', VungMienController::class);

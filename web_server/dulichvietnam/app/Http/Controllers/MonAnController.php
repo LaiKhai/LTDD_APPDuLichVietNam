@@ -16,8 +16,8 @@ class MonAnController extends Controller
     public function index()
     {
         $monan = MonAn::all();
-        return view('monan',[
-            'data' => $monan
+        return view('monan-index',[
+            'MonAn' => $monan
         ]);
     }
 

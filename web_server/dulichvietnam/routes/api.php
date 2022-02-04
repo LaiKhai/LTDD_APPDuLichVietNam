@@ -8,10 +8,12 @@ use App\Http\Controllers\API\LuuTruController;
 use App\Http\Controllers\API\QuanAnAPIController;
 use App\Http\Controllers\API\DiaDanhController;
 use App\Http\Controllers\API\VungMienController;
+use App\Http\Controllers\API\BaiVietController;
 
 Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);
 Route::apiResource('diadanh',DiaDanhController::class);
+Route::apiResource('baiviet',BaiVietController::class);
 Route::apiResource('vungmien', VungMienController::class);
 Route::apiResource('luutru',LuuTruController::class);
 Route::apiResource('quanan',QuanAnAPIController::class);
