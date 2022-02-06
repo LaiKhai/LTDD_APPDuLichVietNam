@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MonAnController;
 use App\Http\Controllers\DiaDanhController;
 use App\Http\Controllers\VungMienController;
+use App\Http\Controllers\LuuTruController;
+use App\Http\Controllers\QuanAnController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,5 +23,7 @@ Route::get('/', [HomeController::class,'index']);
 
 Route::get('login',[LoginController::class,'show'])->name('login');
 Route::resource('monan', MonAnController::class);
+Route::resource('luutru', LuuTruController::class);
+Route::resource('quanan', QuanAnController::class);
 Route::resource('diadanh', DiaDanhController::class);
 Route::resource('vungmien', VungMienController::class);

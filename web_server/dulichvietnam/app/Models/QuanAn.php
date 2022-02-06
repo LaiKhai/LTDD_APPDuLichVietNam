@@ -10,12 +10,13 @@ class QuanAn extends Model
 {
     use HasFactory;
     use SoftDeletes;
-
+    protected $table='quan_ans';
     protected $fillable=[
         'ten',
         'diachi',
         'sdt',
         'hinhanh',
+        'dia_danhs_id',
         'trangthai'
     ];
     public function diadanh(){

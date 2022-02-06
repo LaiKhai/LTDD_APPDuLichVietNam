@@ -335,8 +335,7 @@
                                         sách món
                                         ăn</a>
                                 </li>
-                                <li class="nav-item"> <a class="nav-link active"
-                                        href="pages/ui-features/dropdowns.html">Thêm
+                                <li class="nav-item"> <a class="nav-link active" href="{{route('monan.create')}}">Thêm
                                         món ăn</a></li>
                             </ul>
                         </div>
@@ -350,13 +349,11 @@
                         </a>
                         <div class="collapse" id="ui-basic2">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/buttons.html">Buttons</a>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('luutru.index')}}">Danh sách nơi
+                                        lưu trú</a>
                                 </li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/typography.html">Typography</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('luutru.create')}}">Thêm
+                                        nơi lưu trú</a></li>
                             </ul>
                         </div>
                     </li>
@@ -369,13 +366,11 @@
                         </a>
                         <div class="collapse" id="ui-basic3">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/buttons.html">Buttons</a>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('quanan.index')}}">Danh sách
+                                        quán ăn</a>
                                 </li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/typography.html">Typography</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('quanan.create')}}">Thêm quán
+                                        ăn</a></li>
                             </ul>
                         </div>
                     </li>
@@ -443,6 +438,7 @@
     <!-- Custom js for this page -->
     <script src="{{asset('admin_view/assets/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+    @yield('Script')
 </body>
 
 </html>

@@ -55,7 +55,7 @@ Danh sách thông tin món ăn
                         <input type="checkbox" class="form-check-input" name="trangthai" value=1>Trạng thái</label>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Thêm</button>
-                <button class="btn btn-light">Hủy</button>
+                <a type="button" class="btn btn-outline-primary" href="{{route('diadanh.index')}}">Thoát</a>
             </form>
         </div>
     </div>

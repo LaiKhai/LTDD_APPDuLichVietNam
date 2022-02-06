@@ -22,27 +22,32 @@ Danh sách thông tin món ăn
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th> ID </th>
-                            <th> Hình Ảnh </th>
-                            <th> Tên món </th>
-                            <th> Mô tả </th>
-                            <th> Trạng thái </th>
-                            <th> Chức năng </th>
+                            <th class="text-center"> ID </th>
+                            <th class="text-center"> Hình Ảnh </th>
+                            <th class="text-center"> Tên món </th>
+                            <th class="text-center"> Mô tả </th>
+                            <th class="text-center"> Thuộc địa danh</th>
+                            <th class="text-center"> Trạng thái </th>
+                            <th class="text-center"> Chức năng </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($MonAn as $monan)
                         <tr>
-                            <td>{{$monan->id}}</td>
+                            <td class="text-center">{{$monan->id}}</td>
                             <td class="py-1">
-                                <img src="admin_view/assets/images/monan/pic{{$monan->id}}.jpg" alt="image" />
+                                <img src="{{$monan->hinhanh}}" alt="image"
+                                    style="width:50px; max-height:200px;object-fit:contain;" />
                             </td>
-                            <td>{{$monan->ten}}</td>
+                            <td class="text-center">{{$monan->ten}}</td>
                             <td>
                                 <div style="width: 300px;
                                     white-space: normal;">{{$monan->mota}}</div>
                             </td>
-                            <td>
+                            <td class="text-center">@foreach ($diaDanh as $item)
+                                {{$item->tendiadanh}}
+                                @endforeach</td>
+                            <td class="text-center">
                                 @if ($monan->trangthai==1)
                                 <span class="badge bg-success">Tồn tại</span>
                                 @endif
@@ -53,9 +58,19 @@ Danh sách thông tin món ăn
                                 <span class="badge bg-warining">Đang xử lí</span>
                                 @endif
                             </td>
-                            <td>
-                                <button type="button" class="btn btn-outline-success">Sửa</button>
-                                <button type="button" class="btn btn-outline-danger">Xóa</button>
+                            <td class="text-center">
+                                <a type="button" class="btn btn-outline-warning"
+                                    href="{{route('monan.show',['monan'=>$monan])}}">chi
+                                    tiết</a>
+                                <a type="button" class="btn btn-outline-success"
+                                    href="{{route('monan.edit',['monan'=>$monan])}}">Sửa</a>
+                            </td>
+                            <td class="text-center">
+                                <form method="POST" action="{{route('monan.destroy',['monan'=>$monan])}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-danger">Xóa</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

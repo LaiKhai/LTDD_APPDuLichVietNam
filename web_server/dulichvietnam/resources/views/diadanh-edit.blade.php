@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Danh sách thông tin món ăn
+Chỉnh sửa địa danh
 @endsection
 @section('content-wrapper')
 @parent

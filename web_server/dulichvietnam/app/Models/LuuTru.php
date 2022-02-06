@@ -12,13 +12,14 @@ class LuuTru extends Model
 {
     use HasFactory;
     use SoftDeletes;
-
+    protected $table='luu_trus';
     protected $fillable=[
         'ten',
         'diachi',
         'sdt',
         'hinhanh',
-        'trangthai'
+        'trangthai',
+        'dia_danhs_id'
     ];
     public function diadanh(){
         return $this->belongsTo(DiaDanh::class);
