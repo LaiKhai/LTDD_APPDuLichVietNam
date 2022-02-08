@@ -21,6 +21,7 @@ class Baiviet extends Migration
             $table->foreignId('dia_danhs_id');
             $table->foreignId('user_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

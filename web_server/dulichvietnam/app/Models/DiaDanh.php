@@ -4,15 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DiaDanh extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+    protected $table='dia_danhs';
     protected $fillable=[
         'tendiadanh',
         'mota',
         'kinhdo',
         'vido',
+        'trangthai',
         'vung_miens_id'
     ];
     public function vungmien()

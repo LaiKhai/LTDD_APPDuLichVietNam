@@ -11,10 +11,13 @@ class MonAn extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $table='mon_ans';
     protected $fillable=[
+        'id',
         'ten',
         'mota',
         'hinhanh',
+        'dia_danhs_id',
         'trangthai'
     ];
     public function diadanh(){

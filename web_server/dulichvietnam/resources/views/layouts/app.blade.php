@@ -7,20 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="admin_view/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="admin_view/assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="admin_view/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{asset('admin_view/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_view/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_view/assets/vendors/css/vendor.bundle.base.css')}}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="admin_view/assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="admin_view/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="{{asset('admin_view/assets/vendors/font-awesome/css/font-awesome.min.css')}}" />
+    <link rel="stylesheet"
+        href="{{asset('admin_view/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="admin_view/assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('admin_view/assets/css/style.css')}}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="admin_view/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="{{asset('admin_view/assets/images/favicon.png')}}" />
 </head>
 
 <body>
@@ -28,10 +29,10 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="admin_view/assets/images/logo.svg"
-                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="index.html"><img
+                        src="{{asset('admin_view/assets/images/logo.svg')}}" alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img
-                        src="admin_view/assets/images/logo-mini.svg" alt="logo" /></a>
+                        src="{{asset('admin_view/assets/images/logo-mini.svg')}}" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -108,7 +109,7 @@
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
                             aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="admin_view/assets/images/faces/face28.png" alt="image">
+                                <img src="{{asset('admin_view/assets/images/faces/face28.png')}}" alt="image">
                             </div>
                             <div class="nav-profile-text">
                                 <p class="mb-1 text-black">Henry Klein</p>
@@ -118,7 +119,7 @@
                             aria-labelledby="profileDropdown" data-x-placement="bottom-end">
                             <div class="p-3 text-center bg-primary">
                                 <img class="img-avatar img-avatar48 img-avatar-thumb"
-                                    src="admin_view/assets/images/faces/face28.png" alt="">
+                                    src="{{asset('admin_view/assets/images/faces/face28.png')}}" alt="">
                             </div>
                             <div class="p-2">
                                 <h5 class="dropdown-header text-uppercase pl-2 text-dark">User Options</h5>
@@ -170,7 +171,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="admin_view/assets/images/faces/face4.jpg" alt="image" class="profile-pic">
+                                    <img src="{{asset('admin_view/assets/images/faces/face4.jpg')}}" alt="image"
+                                        class="profile-pic">
                                 </div>
                                 <div
                                     class="preview-item-content d-flex align-items-start flex-column justify-content-center">
@@ -182,7 +184,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="admin_view/assets/images/faces/face2.jpg" alt="image" class="profile-pic">
+                                    <img src="{{asset('admin_view/assets/images/faces/face2.jpg')}}" alt="image"
+                                        class="profile-pic">
                                 </div>
                                 <div
                                     class="preview-item-content d-flex align-items-start flex-column justify-content-center">
@@ -195,7 +198,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="admin_view/assets/images/faces/face3.jpg" alt="image" class="profile-pic">
+                                    <img src="{{asset('admin_view/assets/images/faces/face3.jpg')}}" alt="image"
+                                        class="profile-pic">
                                 </div>
                                 <div
                                     class="preview-item-content d-flex align-items-start flex-column justify-content-center">
@@ -275,10 +279,29 @@
                 <ul class="nav">
                     <li class="nav-item nav-category">Main</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="#">
                             <span class="icon-bg"><i class="mdi mdi-account-box-outline"></i></span>
                             <span class="menu-title">Quản lí người dùng</span>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic5" aria-expanded="false"
+                            aria-controls="ui-basic">
+                            <span class="icon-bg"><i class="mdi mdi-clipboard-text"></i></span>
+                            <span class="menu-title">Quản lí địa danh</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic5">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link active" href="{{route('diadanh.index')}}">DS
+                                        địa danh / vùng miền</a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link active" href="{{route('diadanh.create')}}">Thêm
+                                        địa
+                                        danh mới</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
@@ -300,22 +323,20 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false"
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic6" aria-expanded="false"
                             aria-controls="ui-basic">
                             <span class="icon-bg"><i class="mdi mdi-clipboard-text"></i></span>
                             <span class="menu-title">Quản lí món ăn</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="ui-basic1">
+                        <div class="collapse" id="ui-basic6">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Danh
+                                <li class="nav-item"> <a class="nav-link active" href="{{route('monan.index')}}">Danh
                                         sách món
                                         ăn</a>
                                 </li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/typography.html">Typography</a></li>
+                                <li class="nav-item"> <a class="nav-link active" href="{{route('monan.create')}}">Thêm
+                                        món ăn</a></li>
                             </ul>
                         </div>
                     </li>
@@ -328,13 +349,11 @@
                         </a>
                         <div class="collapse" id="ui-basic2">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/buttons.html">Buttons</a>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('luutru.index')}}">Danh sách nơi
+                                        lưu trú</a>
                                 </li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/typography.html">Typography</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('luutru.create')}}">Thêm
+                                        nơi lưu trú</a></li>
                             </ul>
                         </div>
                     </li>
@@ -347,13 +366,11 @@
                         </a>
                         <div class="collapse" id="ui-basic3">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/buttons.html">Buttons</a>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('quanan.index')}}">Danh sách
+                                        quán ăn</a>
                                 </li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/typography.html">Typography</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('quanan.create')}}">Thêm quán
+                                        ăn</a></li>
                             </ul>
                         </div>
                     </li>
@@ -407,20 +424,21 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="admin_view/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="{{asset('admin_view/assets/vendors/js/vendor.bundle.base.js')}}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="admin_view/assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="admin_view/assets/vendors/jquery-circle-progress/js/circle-progress.min.js"></script>
+    <script src="{{asset('admin_view/assets/vendors/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('admin_view/assets/vendors/jquery-circle-progress/js/circle-progress.min.js')}}"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="admin_view/assets/js/off-canvas.js"></script>
-    <script src="admin_view/assets/js/hoverable-collapse.js"></script>
-    <script src="admin_view/assets/js/misc.js"></script>
+    <script src="{{asset('admin_view/assets/js/off-canvas.js')}}"></script>
+    <script src="{{asset('admin_view/assets/js/hoverable-collapse.js')}}"></script>
+    <script src="{{asset('admin_view/assets/js/misc.js')}}"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="admin_view/assets/js/dashboard.js"></script>
+    <script src="{{asset('admin_view/assets/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+    @yield('Script')
 </body>
 
 </html>

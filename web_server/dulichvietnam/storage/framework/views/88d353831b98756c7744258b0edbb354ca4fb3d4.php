@@ -31,25 +31,25 @@ Danh sách thông tin món ăn
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $MonAn; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $monan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td><?php echo e($item['id']); ?></td>
+                            <td><?php echo e($monan->id); ?></td>
                             <td class="py-1">
-                                <img src="admin_view/assets/images/monan/pic<?php echo e($item['id']); ?>.jpg" alt="image" />
+                                <img src="admin_view/assets/images/monan/pic<?php echo e($monan->id); ?>.jpg" alt="image" />
                             </td>
-                            <td><?php echo e($item['ten']); ?></td>
+                            <td><?php echo e($monan->ten); ?></td>
                             <td>
                                 <div style="width: 300px;
-                                    white-space: normal;"><?php echo e($item['mota']); ?></div>
+                                    white-space: normal;"><?php echo e($monan->mota); ?></div>
                             </td>
                             <td>
-                                <?php if($item['trangthai']==1): ?>
+                                <?php if($monan->trangthai==1): ?>
                                 <span class="badge bg-success">Tồn tại</span>
                                 <?php endif; ?>
-                                <?php if($item['trangthai']==0): ?>
+                                <?php if($monan->trangthai==0): ?>
                                 <span class="badge bg-danger">Đã xóa</span>
                                 <?php endif; ?>
-                                <?php if($item['trangthai']==2): ?>
+                                <?php if($monan->trangthai==2): ?>
                                 <span class="badge bg-warining">Đang xử lí</span>
                                 <?php endif; ?>
                             </td>
