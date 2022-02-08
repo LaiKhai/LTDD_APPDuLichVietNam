@@ -42,121 +42,119 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         ),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(20),
-              alignment: Alignment.center,
-              child: Icon(
-                Icons.person,
-                size: 50,
-                color: Colors.black,
-              ),
+      body: ListView(
+        children: [
+          Container(
+            padding: EdgeInsets.all(20),
+            alignment: Alignment.center,
+            child: Icon(
+              Icons.person,
+              size: 50,
+              color: Colors.black,
             ),
-            Container(
-              padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
-              child: TextField(
-                controller: _namecontroller,
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(27)),
-                  ),
-                  labelText: 'Họ tên',
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
+            child: TextField(
+              controller: _namecontroller,
+              keyboardType: TextInputType.name,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(27)),
                 ),
+                labelText: 'Họ tên',
               ),
             ),
-            Container(
-              padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
-              child: TextField(
-                controller: _emailcontroller,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(27)),
-                  ),
-                  labelText: 'Email',
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
+            child: TextField(
+              controller: _emailcontroller,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(27)),
                 ),
+                labelText: 'Email',
               ),
             ),
-            Container(
-              padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
-              child: TextFormField(
-                controller: _passcontroller,
-                keyboardType: TextInputType.visiblePassword,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(27)),
-                  ),
-                  labelText: 'Mật khẩu',
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
+            child: TextFormField(
+              controller: _passcontroller,
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(27)),
                 ),
-                obscureText: true,
+                labelText: 'Mật khẩu',
               ),
+              obscureText: true,
             ),
-            Container(
-              padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
-              child: TextFormField(
-                controller: _cfpasscontroller,
-                keyboardType: TextInputType.visiblePassword,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(27)),
-                  ),
-                  labelText: 'Xác nhận mật khẩu',
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(40, 20, 40, 0),
+            child: TextFormField(
+              controller: _cfpasscontroller,
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(27)),
                 ),
-                obscureText: true,
+                labelText: 'Xác nhận mật khẩu',
               ),
+              obscureText: true,
             ),
-            Container(
-              padding: EdgeInsets.fromLTRB(40, 40, 30, 50),
-              child: ElevatedButton(
-                onPressed: () {
-                  if (_emailcontroller.text == "" ||
-                      _namecontroller.text == "" ||
-                      _passcontroller.text == "" ||
-                      _cfpasscontroller == "") {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return Alert(
-                            title: 'Yêu cầu nhập đầy đủ thông tin',
-                          );
-                        });
-                  } else if (_passcontroller.text != _cfpasscontroller.text) {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return Alert(
-                              title: 'Xác nhận mật khẩu không trùng khớp');
-                        });
-                  } else {
-                    _signUp.register(
-                        context,
-                        _emailcontroller.text,
-                        _passcontroller.text,
-                        _cfpasscontroller.text,
-                        _namecontroller.text);
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(40, 40, 30, 50),
+            child: ElevatedButton(
+              onPressed: () {
+                if (_emailcontroller.text == "" ||
+                    _namecontroller.text == "" ||
+                    _passcontroller.text == "" ||
+                    _cfpasscontroller == "") {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Alert(
+                          title: 'Yêu cầu nhập đầy đủ thông tin',
+                        );
+                      });
+                } else if (_passcontroller.text != _cfpasscontroller.text) {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Alert(
+                            title: 'Xác nhận mật khẩu không trùng khớp');
+                      });
+                } else {
+                  _signUp.register(
+                      context,
+                      _emailcontroller.text,
+                      _passcontroller.text,
+                      _cfpasscontroller.text,
+                      _namecontroller.text);
 
-                    _emailcontroller.clear();
-                    _passcontroller.clear();
-                    _cfpasscontroller.clear();
-                    _namecontroller.clear();
-                  }
-                },
-                child: Text('Đăng Ký',
-                    style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.w600, color: Colors.white)),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(27)),
-                  primary: kBackgroundColor,
-                  padding: EdgeInsets.symmetric(horizontal: 140, vertical: 20),
-                ),
+                  _emailcontroller.clear();
+                  _passcontroller.clear();
+                  _cfpasscontroller.clear();
+                  _namecontroller.clear();
+                }
+              },
+              child: Text('Đăng Ký',
+                  style: GoogleFonts.quicksand(
+                      fontWeight: FontWeight.w600, color: Colors.white)),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(27)),
+                primary: kBackgroundColor,
+                padding: EdgeInsets.symmetric(horizontal: 140, vertical: 20),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
