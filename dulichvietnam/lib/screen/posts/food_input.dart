@@ -13,6 +13,8 @@ class FoodInput extends StatefulWidget {
 }
 
 class _FoodInputState extends State<FoodInput> {
+  final TextEditingController _txtTen = TextEditingController();
+  final TextEditingController _txtMoTa = TextEditingController();
   final _picker = ImagePicker();
   File? _imageFile;
 
@@ -64,7 +66,7 @@ class _FoodInputState extends State<FoodInput> {
         ),
         Container(
           padding: EdgeInsets.all(40),
-          width: 350        ,
+          width: 350,
           height: 300,
           decoration: BoxDecoration(
               image: _imageFile == null
