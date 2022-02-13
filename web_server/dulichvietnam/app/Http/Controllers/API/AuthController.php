@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-
+use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -24,15 +24,15 @@ class AuthController extends Controller
             'hoten'=>'required|string|max:255'
         ]);
 
-        $user=User::create([
-            'email'=>$data['email'],
-            'password'=>Hash::make($data['password']),
-            'confirm_password'=>Hash::make($data['confirm_password']),
-            'hoten'=>$data['hoten'],
-            'phanquyen'=>'user',
-            'trangthai'=>1
-        ]);
-
+        $input['email']=$request->input('email');
+        $input['password']=Hash::make($request->input('password'));
+        $input['confirm_password']=Hash::make($request->input('confirm_password'));
+        $input['hoten']=$request->input('hoten');
+        $input['hinhanh']='';
+        $input['phanquyen']='user';
+        $input['trangthai']='1';
+        
+        $user=User::create($input);
         $token = $user->createToken('DuLichVietNam')->plainTextToken;
 
         $response=[

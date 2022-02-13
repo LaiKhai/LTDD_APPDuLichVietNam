@@ -67,7 +67,7 @@ Danh sách thông tin Địa Danh
                             <td>{{$item->id}}</td>
                             <td>{{$item->tendiadanh}}</td>
                             <td>
-                                <div style="width: 300px;white-space: normal;">{{$item->mota}}</div>
+                                <div style="width: 100px;white-space: normal;">{{$item->mota}}</div>
                             </td>
                             <td>{{$item->tenvungmien}}</td>
                             <td>{{$item->kinhdo}}</td>

@@ -60,7 +60,7 @@ Thông tin chi tiết quán ăn
                 <div class="form-group row">
                     <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Hình Ảnh</label>
                     <div class="col-sm-9">
-                        <img src="{{$quanan->hinhanh}}" style="width:3d00px; max-height:200px;object-fit:contain;"
+                        <img src="{{$quanan->hinhanh}}" style="width:300px; max-height:200px;object-fit:contain;"
                             alt="">
                     </div>
                 </div>

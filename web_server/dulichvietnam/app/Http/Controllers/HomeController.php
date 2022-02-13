@@ -10,9 +10,10 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Ressponse
      */
     public function index(){
+        
         return view('home');
     }
 }
