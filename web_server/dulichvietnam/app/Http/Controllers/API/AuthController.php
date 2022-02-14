@@ -28,7 +28,6 @@ class AuthController extends Controller
         $input['password']=Hash::make($request->input('password'));
         $input['confirm_password']=Hash::make($request->input('confirm_password'));
         $input['hoten']=$request->input('hoten');
-        $input['hinhanh']='';
         $input['phanquyen']='user';
         $input['trangthai']='1';
         
