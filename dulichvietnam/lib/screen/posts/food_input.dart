@@ -13,19 +13,18 @@ class FoodInput extends StatefulWidget {
 }
 
 class _FoodInputState extends State<FoodInput> {
-  final picker = ImagePicker();
-  File? _image;
+  final TextEditingController _txtTen = TextEditingController();
+  final TextEditingController _txtMoTa = TextEditingController();
+  final _picker = ImagePicker();
+  File? _imageFile;
 
   Future getImage() async {
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-
-    setState(() {
-      if (pickedFile != null) {
-        _image = File(pickedFile.path);
-      } else {
-        print('No image selected.');
-      }
-    });
+    final pickedFile = await _picker.getImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _imageFile = File(pickedFile.path);
+      });
+    }
   }
 
   @override
@@ -60,31 +59,34 @@ class _FoodInputState extends State<FoodInput> {
           ),
         ),
         Container(
-            alignment: Alignment.topLeft,
-            padding: EdgeInsets.only(left: 20, top: 20),
-            child: Column(
-              children: [
-                Text('Hình ảnh',
-                    style: TextStyle(fontSize: 18, color: kTextColor)),
-                SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    getImage();
-                  },
-                  child: Text('+',
-                      style: GoogleFonts.quicksand(
-                          fontWeight: FontWeight.w600, color: kTextColor)),
-                  style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(27)),
-                      primary: Colors.white,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 80)),
-                ),
-              ],
-            )),
+          alignment: Alignment.centerLeft,
+          padding: EdgeInsets.fromLTRB(40, 20, 0, 20),
+          child: Text('Hình ảnh',
+              style: TextStyle(fontSize: 18, color: kTextColor)),
+        ),
+        Container(
+          padding: EdgeInsets.all(40),
+          width: 350,
+          height: 300,
+          decoration: BoxDecoration(
+              image: _imageFile == null
+                  ? null
+                  : DecorationImage(
+                      image: FileImage(_imageFile ?? File('')),
+                      fit: BoxFit.cover)),
+          child: Center(
+            child: IconButton(
+              icon: Icon(
+                Icons.image,
+                size: 40,
+                color: Colors.black54,
+              ),
+              onPressed: () {
+                getImage();
+              },
+            ),
+          ),
+        ),
       ],
     );
   }
