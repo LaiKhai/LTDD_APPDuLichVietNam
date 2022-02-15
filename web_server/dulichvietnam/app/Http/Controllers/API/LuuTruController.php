@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Models\LuuTru;
+use Illuminate\Support\Facades\Validator;
 
 class LuuTruController extends Controller
 {
@@ -92,6 +93,7 @@ class LuuTruController extends Controller
         $luutru->sdt=$input['sdt'];
         $luutru->trangthai=$input['trangthai'];
         $luutru->dia_danhs_id=$input['dia_danhs_id'];
+        $luutru->save();
         $response=[
             'message'=>'Success',
             'data'=>$luutru

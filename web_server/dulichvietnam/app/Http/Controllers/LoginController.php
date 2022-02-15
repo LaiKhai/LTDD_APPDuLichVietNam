@@ -24,8 +24,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials,['email'=>$request->input('email'),'password'=>Hash::make($request->input('password')),'phanquyen'=>'admin'])) {
             $request->session()->regenerate();
-            $user=User::find($request->input('email'))->get();
-            return redirect()->intended('/');
+            return redirect('/');
         }
 
         return back()->withErrors([
