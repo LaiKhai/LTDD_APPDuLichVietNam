@@ -39,4 +39,8 @@ class DiaDanh extends Model
     {
         return $this->hasMany(BaiViet::class);
     }
+    public function hinhanh()
+    {
+        return $this->hasMany(HinhAnh::class);
+    }
 }

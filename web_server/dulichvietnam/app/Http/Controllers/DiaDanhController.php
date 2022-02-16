@@ -6,11 +6,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DiaDanh;
 use App\Models\VungMien;
+use App\Models\HinhAnh;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
 class DiaDanhController extends Controller
 {
+    public function FixImg(HinhAnh $hinhAnh)
+    {
+        if(Storage::disk('public')->exists($hinhAnh->hinhanh)){
+            $hinhAnh->hinhanh=Storage::url($hinhAnh->hinhanh);
+        }
+        else{
+            $hinhAnh->hinhanh='/admin_view/assets/images/No_Image.png';
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +79,14 @@ class DiaDanhController extends Controller
         $DiaDanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
         ->where('dia_danhs.id',$data['id'])
         ->select('dia_danhs.*','vung_miens.tenvungmien')->get();
-        return view('diadanh-detail',['diadanh'=>$diaDanh,'lstdiadanh'=>$DiaDanh]);
+        $hinhAnh=HinhAnh::join('dia_danhs','dia_danhs.id','=','hinh_anhs.dia_danhs_id')
+        ->where('dia_danhs.id',$data['id'])
+        ->select('dia_danhs.*','hinh_anhs.hinhanh')->get();
+        foreach($hinhAnh as $ha)
+        {
+           $this->FixImg($ha); 
+        }
+        return view('diadanh-detail',['diadanh'=>$diaDanh,'lstdiadanh'=>$DiaDanh,'lstHinhAnh'=>$hinhAnh]);
     }
 
     /**

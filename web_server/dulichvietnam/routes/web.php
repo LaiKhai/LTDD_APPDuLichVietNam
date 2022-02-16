@@ -8,6 +8,8 @@ use App\Http\Controllers\DiaDanhController;
 use App\Http\Controllers\VungMienController;
 use App\Http\Controllers\LuuTruController;
 use App\Http\Controllers\QuanAnController;
+use App\Http\Controllers\BaiVietController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,11 +21,19 @@ use App\Http\Controllers\QuanAnController;
 |
 */
 
-Route::get('/', [HomeController::class,'index']);
 
-Route::get('login',[LoginController::class,'show'])->name('login');
-Route::resource('monan', MonAnController::class);
-Route::resource('luutru', LuuTruController::class);
-Route::resource('quanan', QuanAnController::class);
-Route::resource('diadanh', DiaDanhController::class);
-Route::resource('vungmien', VungMienController::class);
+
+Route::get('login',[LoginController::class,'index'])->name('login');
+Route::post('login',[LoginController::class,'authenticate'])->name('login');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/', [HomeController::class,'index']);
+    Route::resource('monan', MonAnController::class);
+    Route::resource('user', UserController::class);
+    Route::resource('luutru', LuuTruController::class);
+    Route::resource('quanan', QuanAnController::class);
+    Route::resource('diadanh', DiaDanhController::class);
+    Route::resource('vungmien', VungMienController::class);
+    Route::resource('baiviet', BaiVietController::class);
+    Route::post('dangxuat',[LoginController::class,'logout'])->name('dangxuat');
+});

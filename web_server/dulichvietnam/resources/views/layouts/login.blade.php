@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login V14</title>
+    <title>Du Lịch Việt Nam</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -34,7 +34,8 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-                <form class="login100-form validate-form flex-sb flex-w">
+                <form class="login100-form validate-form flex-sb flex-w" action="{{route('login')}}" method="POST">
+                    @csrf
                     <span class="login100-form-title p-b-32">
                         Đăng Nhập
                     </span>
@@ -43,10 +44,12 @@
                         Email
                     </span>
                     <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-                        <input class="input100" type="text" name="username">
+                        <input class="input100" type="text" name="email">
                         <span class="focus-input100"></span>
                     </div>
-
+                    @if ($errors->has('email'))
+                    <small style="color:red">{{$errors->first('email')}}</small> <br>
+                    @endif
                     <span class="txt1 p-b-11">
                         Mật Khẩu
                     </span>
@@ -54,10 +57,13 @@
                         <span class="btn-show-pass">
                             <i class="fa fa-eye"></i>
                         </span>
-                        <input class="input100" type="password" name="pass">
+                        <input class="input100" type="password" name="password">
                         <span class="focus-input100"></span>
-                    </div>
 
+                    </div>
+                    @if ($errors->has('password'))
+                    <small style="color:red">{{$errors->first('password')}}</small> <br>
+                    @endif
                     <div class="flex-sb-m w-full p-b-48">
                         <div class="contact100-form-checkbox">
                             <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">

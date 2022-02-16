@@ -44,11 +44,6 @@ Chỉnh sửa thông tin nơi lưu trú
                     <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Thuộc địa danh</label>
                     <div class="col-sm-9">
                         <select class="form-control" id="exampleSelectGender" name="dia_danhs_id">
-                            <option>---
-                                @foreach ($diaDanh as $item)
-                                {{$item->tendiadanh}}
-                                @endforeach
-                                ---</option>
                             @foreach ($lstdiadanh as $diadanh)
                             <option value="{{$diadanh->id}}">{{$diadanh->tendiadanh}}</option>
                             @endforeach

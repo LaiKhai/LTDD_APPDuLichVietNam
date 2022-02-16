@@ -32,7 +32,11 @@ class BaiVietController extends Controller
      */
     public function store(Request $request)
     {
-        $input=$request->all();
+        $input['tieude']=$request->input('tieude');
+        $input['mota']=$request->input('mota');
+        $input['trangthai']=$request->input('trangthai');
+        $input['dia_danhs_id']=$request->input('dia_danhs_id');
+        $input['hinhanh']=$request->file('hinhanh');
         $validator=Validator::make($input,[
             'tieude'=>'required|string|max:255',
             'mota'=>'required|string',

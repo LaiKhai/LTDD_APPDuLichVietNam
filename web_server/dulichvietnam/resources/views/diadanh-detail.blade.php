@@ -69,6 +69,13 @@ Danh sách thông tin món ăn
                     @endif
                 </div>
             </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    @foreach ($lstHinhAnh as $item)
+                    <img src="{{$item->hinhanh}}" style="width:3d00px; max-height:200px;object-fit:contain;" alt="">
+                    @endforeach
+                </div>
+            </div>
             @endforeach
             <a type="button" class="btn btn-outline-primary" href="{{route('diadanh.index')}}">Quay lại</a>
         </div>

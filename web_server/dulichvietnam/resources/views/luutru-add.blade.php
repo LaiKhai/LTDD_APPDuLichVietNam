@@ -7,7 +7,7 @@ Thêm nơi lưu trú
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Thêm món ăn</h4>
+            <h4 class="card-title">@yield('title')</h4>
             <form class="forms-sample" method="POST" action="{{route('luutru.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
