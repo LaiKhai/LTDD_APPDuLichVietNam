@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\QuanAn;
-
+use Illuminate\Support\Facades\Validator;
 
 class QuanAnAPIController extends Controller
 {
@@ -32,6 +32,7 @@ class QuanAnAPIController extends Controller
             'ten'=>'required|string|max:255',
             'diachi'=>'required|string',
             'sdt'=>'required|string',
+     
 
         ]);
         if($validator->fails()){

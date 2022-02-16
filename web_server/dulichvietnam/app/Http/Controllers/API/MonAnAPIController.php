@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MonAn;
+use Illuminate\Support\Facades\Validator;
 
 class MonAnAPIController extends Controller
 {
