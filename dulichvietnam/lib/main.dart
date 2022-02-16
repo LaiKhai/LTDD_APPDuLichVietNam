@@ -1,3 +1,4 @@
+import 'package:VietNamTravel/screen/Post/PostScreen.dart';
 import 'package:VietNamTravel/screen/posts/food_post.dart';
 import 'package:VietNamTravel/screen/register/register.dart';
 import 'package:flutter/material.dart';
