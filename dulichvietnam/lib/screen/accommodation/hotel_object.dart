@@ -4,6 +4,7 @@ class LuuTru {
   final String diachi;
   final String sdt;
   final String hinhanh;
+
   LuuTru(this.id, this.ten, this.diachi, this.sdt, this.hinhanh);
   LuuTru.fromJson(Map<String, dynamic> json)
       : id = json['id'],
