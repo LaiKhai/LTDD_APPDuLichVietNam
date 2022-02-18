@@ -19,7 +19,7 @@ class LoginProvider {
 
   Future<void> signIn(
       BuildContext context, String email, String password) async {
-    String url = 'http://192.168.1.4:80/api/login';
+    String url = loginUrl;
 
     Map body = {'email': email, 'password': password};
     var response = await http.post(Uri.parse(url),
@@ -81,13 +81,12 @@ class LoginProvider {
   Future<void> Logout() async {
     Future<String?> token = LoginProvider().getToken();
     print(token);
-    var response = await http.post(
-        Uri.parse('http://192.168.1.4:80/api/logout'),
-        headers: <String, String>{
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': 'Bearer $token',
-        });
+    var response =
+        await http.post(Uri.parse(logoutUrl), headers: <String, String>{
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $token',
+    });
     print(response.body);
     return jsonDecode(response.body)['message'];
   }

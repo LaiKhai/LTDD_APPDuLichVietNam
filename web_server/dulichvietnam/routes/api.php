@@ -12,12 +12,13 @@ use App\Http\Controllers\API\BaiVietController;
 
 Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);
-Route::apiResource('diadanh',DiaDanhController::class);
 Route::apiResource('baiviet',BaiVietController::class);
 Route::apiResource('vungmien', VungMienController::class);
 Route::apiResource('luutru',LuuTruController::class);
 Route::apiResource('quanan',QuanAnAPIController::class);
 Route::apiResource('monan',MonAnAPIController::class);
 Route::middleware(['auth:sanctum'])->group(function(){
+    Route::apiResource('diadanh',DiaDanhController::class);
+    Route::post('user',[AuthController::class,'user']);
     Route::post('logout',[AuthController::class,'logout']);
 });

@@ -1,5 +1,3 @@
-import 'package:VietNamTravel/screen/posts/food_post.dart';
-import 'package:VietNamTravel/screen/register/register.dart';
 import 'package:flutter/material.dart';
 import 'screen/splash/splashscreen.dart';
 import 'package:VietNamTravel/constants.dart';
@@ -18,13 +16,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textSelectionTheme: TextSelectionThemeData(
+        textSelectionTheme: const TextSelectionThemeData(
           cursorColor: kBackgroundColor,
           selectionColor: kBackgroundColor,
           selectionHandleColor: kBackgroundColor,
         ),
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

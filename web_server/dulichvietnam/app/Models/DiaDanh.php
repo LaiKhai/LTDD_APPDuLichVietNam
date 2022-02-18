@@ -5,6 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\VungMien;
+use App\Models\MonAn;
+use App\Models\QuanAn;
+use App\Models\LuuTru;
+use App\Models\BaiViet;
+use App\Models\HinhAnh;
+use App\Models\Likes_DiaDanh;
 
 class DiaDanh extends Model
 {
@@ -42,5 +49,9 @@ class DiaDanh extends Model
     public function hinhanh()
     {
         return $this->hasMany(HinhAnh::class);
+    }
+    public function likes()
+    {
+        return $this->hasMany(Likes_DiaDanh::class);
     }
 }
