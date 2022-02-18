@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\DiaDanh;
+use App\Models\Likes_BaiViet;
 
 class BaiViet extends Model
 {
@@ -23,5 +26,8 @@ class BaiViet extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function likes_baiviet(){
+        return $this->hasMany(Likes_BaiViet::class);
     }
 }

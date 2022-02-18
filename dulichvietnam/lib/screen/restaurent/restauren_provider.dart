@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:VietNamTravel/constants.dart';
 import 'package:VietNamTravel/screen/restaurent/restauren_object.dart';
 import 'package:http/http.dart' as http;
 
@@ -12,9 +13,8 @@ class RestaurentProvider {
   }
 
   static Future<List<RestaurentObject>> fetchPosts() async {
-    final response = await http.get(
-        Uri.parse('http://192.168.1.4:80/api/quanan'),
-        headers: {'Accept': 'application/json'});
+    final response = await http
+        .get(Uri.parse(restaurantUrl), headers: {'Accept': 'application/json'});
     return parseRestaurent(response.body);
   }
 }

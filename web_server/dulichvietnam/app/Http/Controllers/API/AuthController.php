@@ -32,12 +32,9 @@ class AuthController extends Controller
         $input['trangthai']='1';
         
         $user=User::create($input);
-        $token = $user->createToken('DuLichVietNam')->plainTextToken;
-
         $response=[
             'message'=>'Register Success',
-            'data'=>$user,
-            'token'=>$token
+            'data'=>$user
         ];
 
         return response()->json($response,200);
@@ -75,5 +72,10 @@ class AuthController extends Controller
     {
         auth()->user()->tokens()->delete();
         return response()->json(['message'=>'Logout Success']);
+    }
+    public function user(){
+        $response=[
+            "user"=>auth()->user()];
+        return response()->json($response,200);
     }
 }

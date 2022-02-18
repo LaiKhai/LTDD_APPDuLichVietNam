@@ -37,13 +37,21 @@ class CreateForeignKey extends Migration
             $table->foreign('dia_danhs_id')->references('id')->on('dia_danhs');
             $table->foreign('bai_viets_id')->references('id')->on('bai_viets');
         });
-        Schema::table('luot_xems', function (Blueprint $table) {
+        Schema::table('luot_xems_bai_viets', function (Blueprint $table) {
             $table->foreign('users_id')->references('id')->on('users');
             $table->foreign('bai_viets_id')->references('id')->on('bai_viets');
         });
-        Schema::table('luot_likes', function (Blueprint $table) {
+        Schema::table('luot_likes_bai_viets', function (Blueprint $table) {
             $table->foreign('users_id')->references('id')->on('users');
             $table->foreign('bai_viets_id')->references('id')->on('bai_viets');
+        });
+        Schema::table('luot_xems_dia_danhs', function (Blueprint $table) {
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('dia_danhs_id')->references('id')->on('dia_danhs');
+        });
+        Schema::table('luot_likes_dia_danhs', function (Blueprint $table) {
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('dia_danh_id')->references('id')->on('dia_danhs');
         });
         Schema::table('an_hien_thong_tins', function (Blueprint $table) {
             $table->foreign('users_id')->references('id')->on('users');

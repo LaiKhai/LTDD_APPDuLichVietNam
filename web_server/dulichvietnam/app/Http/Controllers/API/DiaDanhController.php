@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Validator;
 class DiaDanhController extends Controller
 {
     public function index(){
-        $diadanh = DiaDanh::all();
+        // $diadanh = DiaDanh::orderBy('created_at','desc')->withCount('likes')->get();
+        $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
+        ->select('dia_danhs.*','vung_miens.tenvungmien')->orderBy('created_at','desc')->withCount('likes')->get();
         $response =[
             'message'=>'Success',
             'data'=>$diadanh,
@@ -28,8 +30,8 @@ class DiaDanhController extends Controller
     {
         $input=$request->all();
         $validator = Validator::make($input, [
-            'tendiadanh' => 'required',
-            'mota' => 'required',
+            'tendiadanh' => 'required|string|max:255',
+            'mota' => 'required|string',
             'kinhdo' => 'required',
             'vido' => 'required',
             'vung_miens_id' => 'required'
@@ -58,7 +60,8 @@ class DiaDanhController extends Controller
      */
     public function show($id)
     {
-        $diadanh=DiaDanh::find($id);
+        $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
+        ->select('dia_danhs.*','vung_miens.tenvungmien')->withCount('likes')->get();
         if(is_null($diadanh))
         return $response['message']='Địa danh không tìm thấy';
 
@@ -75,8 +78,12 @@ class DiaDanhController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DiaDanh $diadanh)
+    public function update(Request $request, $id)
     {
+        $diadanh=DiaDanh::find($id);
+        if(!$diadanh){
+            return response()->json(['messgae'=>'Không tìm thấy địa danh nào !',403]);
+        }
         $input=$request->all();
 
         $diadanh->tendiadanh=$input['tendiadanh'];
@@ -101,8 +108,13 @@ class DiaDanhController extends Controller
      */
     public function destroy($id)
     {
-        $diadanh=DiaDanh::find($id)->delete();
+        $diadanh=DiaDanh::find($id);
+        if(!$diadanh){
+            return response(['message'=>'Không tìm thấy địa danh']);
+        }
         $lstdiadanh=DiaDanh::all();
+        $diadanh->likes_diadanh()->delete();
+        $diadanh->delete();
         $response=[
             'message'=>'Success',
             'data'=>$lstdiadanh

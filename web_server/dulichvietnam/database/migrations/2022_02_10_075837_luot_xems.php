@@ -13,7 +13,7 @@ class LuotXems extends Migration
      */
     public function up()
     {
-        Schema::create('luot_xems', function (Blueprint $table) {
+        Schema::create('luot_xems_bai_viets', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id');
             $table->foreignId('bai_viets_id');
@@ -28,6 +28,6 @@ class LuotXems extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('luot_xems');
+        Schema::dropIfExists('luot_xems_bai_viets');
     }
 }
