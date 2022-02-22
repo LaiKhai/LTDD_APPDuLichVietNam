@@ -23,4 +23,29 @@ class FoodProvider {
     }
     return parsePost(response.body);
   }
+
+  static Future<List<MealObject>> getAllFood() async {
+    var token = await getToken();
+    final response = await http.get(Uri.parse(foodUrl), headers: {
+      'Content-type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $token',
+    });
+    return parsePost(response.body);
+  }
+
+  //Tìm kiếm Món ăn
+  static Future<List<MealObject>> searchFood(String searchString) async {
+    List<MealObject> lstResult = [];
+    List<dynamic> data = await getAllFood();
+    if (searchString == '') return lstResult = [];
+
+    for (var e in data) {
+      MealObject co = MealObject.fromJson(e);
+      if (co.ten.toUpperCase().contains(searchString.toUpperCase())) {
+        lstResult.add(co);
+      }
+    }
+    return lstResult;
+  }
 }

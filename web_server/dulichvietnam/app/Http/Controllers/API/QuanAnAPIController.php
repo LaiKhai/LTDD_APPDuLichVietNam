@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Validator;
 class QuanAnAPIController extends Controller
 {
     public function index(Request $request){
-        $quanan = QuanAn::all();
+        $quanan=QuanAn::join('dia_danhs','quan_ans.dia_danhs_id','=','dia_danhs.id')
+        ->select('quan_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
         $response =[
             'message'=>'Success',
             'data'=>$quanan,
@@ -57,7 +58,8 @@ class QuanAnAPIController extends Controller
      */
     public function show($id)
     {
-       $quanan=QuanAn::find($id);
+        $quanan=QuanAn::join('dia_danhs','quan_ans.dia_danhs_id','=','dia_danhs.id')
+        ->select('quan_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
         if(is_null($quanan))
         return $response['message']='Quán ăn không tìm thấy';
 

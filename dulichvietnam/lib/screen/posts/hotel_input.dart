@@ -13,6 +13,11 @@ class HotelInput extends StatefulWidget {
 }
 
 class _HotelInputState extends State<HotelInput> {
+  final TextEditingController _txtTen = TextEditingController();
+  final TextEditingController _txtDChi = TextEditingController();
+  final TextEditingController _txtSDT = TextEditingController();
+  List<File> files = [];
+
   final _picker = ImagePicker();
   File? _imageFile;
 
@@ -32,7 +37,13 @@ class _HotelInputState extends State<HotelInput> {
       children: [
         Padding(
           padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
-          child: TextField(
+          child: TextFormField(
+            controller: _txtTen,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Không được bỏ trống';
+              }
+            },
             keyboardType: TextInputType.name,
             decoration: InputDecoration(
               focusedBorder: UnderlineInputBorder(
@@ -45,7 +56,13 @@ class _HotelInputState extends State<HotelInput> {
         ),
         Padding(
           padding: EdgeInsets.fromLTRB(40, 10, 40, 0),
-          child: TextField(
+          child: TextFormField(
+            controller: _txtDChi,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Không được bỏ trống';
+              }
+            },
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               focusedBorder: UnderlineInputBorder(
@@ -58,7 +75,13 @@ class _HotelInputState extends State<HotelInput> {
         ),
         Padding(
           padding: EdgeInsets.fromLTRB(40, 10, 40, 0),
-          child: TextField(
+          child: TextFormField(
+            controller: _txtSDT,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Không được bỏ trống';
+              }
+            },
             keyboardType: TextInputType.phone,
             decoration: InputDecoration(
               focusedBorder: UnderlineInputBorder(

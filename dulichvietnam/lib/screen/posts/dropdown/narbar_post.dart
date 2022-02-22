@@ -16,14 +16,15 @@ class _NarbarPostState extends State<NarbarPost> {
         borderRadius: BorderRadius.circular(30),
         child: Image.network(
           'https://i0.wp.com/s3.anhdep24.net/images/2018/02/27/5735aafb0b4a4.jpg',
+          fit: BoxFit.fill,
         ),
       ),
       title: Text(
         'Như Quỳnh',
-        style: TextStyle(color: Colors.black),
+        style: TextStyle(
+            color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         textAlign: TextAlign.left,
       ),
-      subtitle: DropdownButtonExample(),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:VietNamTravel/screen/food/FoodList.dart';
 import 'package:VietNamTravel/screen/food/FoodProvider.dart';
 import 'package:VietNamTravel/screen/food/MealObject.dart';
+import 'package:VietNamTravel/screen/food/food_search.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:VietNamTravel/constants.dart';
@@ -16,23 +17,23 @@ class FoodPage extends StatefulWidget {
 class _FoodPageState extends State<FoodPage> {
   @override
   Widget build(BuildContext context) {
-    Widget timkiem = Expanded(
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: TextField(
-          keyboardType: TextInputType.text,
-          decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(27)),
-              ),
-              prefixIcon: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.search),
-                color: Colors.grey,
-              )),
-        ),
-      ),
-    );
+    // Widget timkiem = Expanded(
+    //   child: Container(
+    //     padding: EdgeInsets.all(10),
+    //     child: TextField(
+    //       keyboardType: TextInputType.text,
+    //       decoration: InputDecoration(
+    //           border: OutlineInputBorder(
+    //             borderRadius: BorderRadius.all(Radius.circular(27)),
+    //           ),
+    //           prefixIcon: IconButton(
+    //             onPressed: () {},
+    //             icon: Icon(Icons.search),
+    //             color: Colors.grey,
+    //           )),
+    //     ),
+    //   ),
+    // );
 
     return Scaffold(
       appBar: AppBar(
@@ -49,6 +50,17 @@ class _FoodPageState extends State<FoodPage> {
                 color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ),
+        actions: [
+          Container(
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => FoodSearch()));
+              },
+              icon: Icon(Icons.search),
+            ),
+          ),
+        ],
       ),
       body: FutureBuilder<List<MealObject>>(
         future: FoodProvider.fetchMeal(context),

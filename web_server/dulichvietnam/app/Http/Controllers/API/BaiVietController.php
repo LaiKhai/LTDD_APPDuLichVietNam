@@ -9,6 +9,17 @@ use App\Models\BaiViet;
 
 class BaiVietController extends Controller
 {
+    public function createPost(Request $request)
+    {
+        $baiviet = new baiviet;
+        $baiviet->user_id= $request->user_id;
+        $baiviet->dia_danhs_id= $request->dia_danh_ids;
+        $baiviet->tieude = $request->tieude;
+        $baiviet->mota = $request->mota;
+        
+    }
+
+
     /**
      * Display a listing of the resource.
      *
