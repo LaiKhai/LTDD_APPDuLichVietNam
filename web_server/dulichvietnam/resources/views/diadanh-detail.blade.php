@@ -56,6 +56,16 @@ Danh sách thông tin món ăn
                 </div>
             </div>
             <div class="form-group row">
+                <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Nhu Cầu</label>
+                <div class="col-sm-9">
+                    <p class="text-black">
+                        @foreach ($lstNhuCau as $nhucau)
+                        <span class="btn btn-primary pr-3">{{$nhucau->tennhucau}}</span>
+                        @endforeach
+                    </p>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Trạng thái</label>
                 <div class="col-sm-9">
                     @if ($item->trangthai==1)

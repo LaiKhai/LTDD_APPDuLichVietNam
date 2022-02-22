@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DiaDanh;
+use App\Models\HinhAnh;
+use App\Models\NhuCau;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -13,7 +15,7 @@ class DiaDanhController extends Controller
     public function index(){
         // $diadanh = DiaDanh::orderBy('created_at','desc')->withCount('likes')->get();
         $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
-        ->select('dia_danhs.*','vung_miens.tenvungmien')->orderBy('created_at','desc')->withCount('likes')->get();
+        ->select('dia_danhs.*','vung_miens.tenvungmien')->orderBy('created_at','desc')->withCount('likes')->withCount('views')->get();
         $response =[
             'message'=>'Success',
             'data'=>$diadanh,
@@ -28,7 +30,12 @@ class DiaDanhController extends Controller
      */
      public function store(Request $request)
     {
-        $input=$request->all();
+        $input['tendiadanh']=$request->input('tendiadanh');
+        $input['mota']=$request->input('mota');
+        $input['kinhdo']=$request->input('kinhdo');
+        $input['vido']=$request->input('vido');
+        $input['trangthai']=$request->input('trangthai');
+        $input['vung_miens_id']=$request->input('vung_miens_id');
         $validator = Validator::make($input, [
             'tendiadanh' => 'required|string|max:255',
             'mota' => 'required|string',
@@ -46,11 +53,23 @@ class DiaDanhController extends Controller
             return response()->json($response,404);
         }
         $diadanh=DiaDanh::create($input);
-         $response=[
+        $inputImg['hinhanh']='';
+        $inputImg['dia_danhs_id']=$diadanh['id'];
+        $inputImg['bai_viets_id']='0';
+        $inputImg['trangthai']='1';
+        if($request->hasFile('hinhanhs')){
+            foreach($request->file('hinhanhs') as $key => $file)
+            {
+                $path = $file->store('admin_view/assets/images/diadanh/'.$diadanh['id'],'public');
+                $inputImg['hinhanh']=$path;
+                $hinhAnh=HinhAnh::create($inputImg);
+            }
+        }
+        $response=[
                 'message'=>'Success',
                 'data'=>$diadanh
-            ];
-            return response()->json($response,200);
+        ];
+        return response()->json($response,200);
     }
     /**
      * Display the specified resource.
@@ -60,14 +79,19 @@ class DiaDanhController extends Controller
      */
     public function show($id)
     {
-        $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
-        ->select('dia_danhs.*','vung_miens.tenvungmien')->withCount('likes')->get();
+        $data=DiaDanh::find($id);
+        $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')->where('dia_danhs.id',$id)
+        ->select('dia_danhs.*','vung_miens.tenvungmien')->withCount('likes')->withCount('views')->get();
+        $NhuCau=NhuCau::join('diadanh_nhucaus','nhu_caus.id','=','diadanh_nhucaus.nhu_caus_id')
+        ->where('diadanh_nhucaus.dia_danh_id',$data['id'])
+        ->select('diadanh_nhucaus.*','nhu_caus.tennhucau')->get();
         if(is_null($diadanh))
         return $response['message']='Địa danh không tìm thấy';
 
         $response=[
             'message'=>'Success',
-            'data'=>$diadanh
+            'data'=>$diadanh,
+            'nhucau'=>$NhuCau
         ];
         return response()->json($response,200);
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BaiViet;
 use App\Models\DiaDanh;
-use App\Models\HinhAnh;
+use App\Models\HinhAnhBaiViet;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class BaiVietController extends Controller
 {
-    public function FixImg(HinhAnh $hinhAnh)
+    public function FixImg(HinhAnhBaiViet $hinhAnh)
     {
         if(Storage::disk('public')->exists($hinhAnh->hinhanh)){
             $hinhAnh->hinhanh=Storage::url($hinhAnh->hinhanh);
@@ -76,7 +76,7 @@ class BaiVietController extends Controller
             {
                 $path = $file->store('admin_view/assets/images/baiviet/'.$baiviet['id'],'public');
                 $inputImg['hinhanh']=$path;
-                $hinhAnh=HinhAnh::create($inputImg);
+                $hinhAnh=HinhAnhBaiViet::create($inputImg);
             }
         }
         
@@ -97,8 +97,9 @@ class BaiVietController extends Controller
         // $user=User::join('bai_viets','bai_viets.user_id','=','users.id')
         // ->where('bai_viets.id',$baiviet)
         // ->select('bai_viets.*','users.email')->get();
-        $hinhAnh=HinhAnh::join('bai_viets','bai_viets.id','=','hinh_anhs.bai_viets_id')
-        ->select('bai_viets.*','hinh_anhs.hinhanh')->get();
+        $diadanh=DiaDanh::join('bai_viets','bai_viets.dia_danhs_id','=','dia_danhs.id')->where('id',);
+        $hinhAnh=HinhAnhBaiViet::join('bai_viets','bai_viets.id','=','hinh_anh_bai_viets.bai_viets_id')
+        ->select('bai_viets.*','hinh_anh_bai_viets.hinhanh')->get();
         foreach($hinhAnh as $ha)
         {
            $this->FixImg($ha); 

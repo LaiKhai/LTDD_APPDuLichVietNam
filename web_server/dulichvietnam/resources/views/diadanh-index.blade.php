@@ -87,8 +87,19 @@ Danh sách thông tin Địa Danh
                                 <a type="button" class="btn btn-outline-warning"
                                     href="{{route('diadanh.show',['diadanh'=>$item])}}">chi
                                     tiết</a>
-                                <a type="button" class="btn btn-outline-success"
-                                    href="{{route('diadanh.edit',['diadanh'=>$item])}}">Sửa</a>
+                                @if($item->trangthai==2)
+                                <a type="button" class="btn btn-outline-warning"
+                                    href="{{route('diadanh.show',['diadanh'=>$item])}}">Duyệt</a>
+                            <td>
+                                <form method="POST" action="{{route('diadanh.destroy',['diadanh'=>$item])}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-danger">Xóa</button>
+                                </form>
+                            </td>
+                            @endif
+                            <a type="button" class="btn btn-outline-success"
+                                href="{{route('diadanh.edit',['diadanh'=>$item])}}">Sửa</a>
                             </td>
                             <td>
                                 <form method="POST" action="{{route('diadanh.destroy',['diadanh'=>$item])}}">

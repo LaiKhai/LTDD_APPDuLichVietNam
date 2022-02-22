@@ -41,7 +41,8 @@ dependencies:
   http: ^0.13.4
   path: ^1.8.0 
   shared_preferences: ^2.0.11
-  image_picker: ^0.8.4+4
+  image_picker: ^0.8.4+9
+  file_picker: ^4.4.0
   smooth_page_indicator: ^1.0.0+2
   network_to_file_image: ^3.1.0
 
@@ -71,6 +72,7 @@ flutter:
   assets:
     - assets/DLVN2.svg
     - assets/images/logoDLVN.svg
+    - assets/images/Noimage.svg
     - assets/images/
     - assets/restaurent/
   #   - images/a_dot_ham.jpeg

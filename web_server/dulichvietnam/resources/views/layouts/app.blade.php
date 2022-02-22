@@ -350,7 +350,21 @@
                             </ul>
                         </div>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic9" aria-expanded="false"
+                            aria-controls="ui-basic">
+                            <span class="icon-bg"><i class="mdi mdi-clipboard-text"></i></span>
+                            <span class="menu-title">Quản lí Nhu cầu</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic9">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="{{route('nhucau.index')}}">Danh sách
+                                        nhu cầu</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
                     <li class="nav-item sidebar-user-actions">
                         <div class="sidebar-user-menu">

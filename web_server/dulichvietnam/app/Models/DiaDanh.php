@@ -12,6 +12,7 @@ use App\Models\LuuTru;
 use App\Models\BaiViet;
 use App\Models\HinhAnh;
 use App\Models\Likes_DiaDanh;
+use App\Models\DiaDanh_NhuCau;
 
 class DiaDanh extends Model
 {
@@ -53,5 +54,12 @@ class DiaDanh extends Model
     public function likes()
     {
         return $this->hasMany(Likes_DiaDanh::class);
+    }
+    public function views()
+    {
+        return $this->hasMany(LuotXem_DiaDanh::class);
+    }
+    public function diadanh_nhucau(){
+        return $this->hasMany(DiaDanh_NhuCau::class);
     }
 }

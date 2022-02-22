@@ -67,7 +67,7 @@ class Location_ListLocation extends StatelessWidget {
                                     style: GoogleFonts.quicksand(
                                         fontSize: 30,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.grey[350]),
+                                        color: Colors.white),
                                   ),
                                 )
                               ],

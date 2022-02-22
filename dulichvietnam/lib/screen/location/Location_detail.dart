@@ -4,6 +4,7 @@ import 'package:VietNamTravel/screen/home/components/Home_Title.dart';
 import 'package:VietNamTravel/screen/location/ChildCard.dart';
 import 'package:VietNamTravel/screen/location/LocationObject.dart';
 import 'package:VietNamTravel/screen/location/LocationProvider.dart';
+import 'package:VietNamTravel/screen/location/Location_Demand.dart';
 import 'package:VietNamTravel/screen/location/demand_Card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +80,47 @@ class Location_Details extends StatelessWidget {
                           ],
                         ),
                         //---------------------------Slide Hình Ảnh - End ----------------------------------//
-
+                        Container(
+                            margin: EdgeInsets.fromLTRB(15, 20, 230, 5),
+                            child: Text(lc.tendiadanh,
+                                style: GoogleFonts.quicksand(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green[500]))),
+                        Container(
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.fromLTRB(20, 0, 5, 0),
+                                child: Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                ),
+                              ),
+                              Container(
+                                child: Text(lc.likes_count.toString(),
+                                    style: GoogleFonts.quicksand(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black)),
+                              ),
+                              Container(
+                                margin: EdgeInsets.fromLTRB(20, 0, 5, 0),
+                                child: Icon(
+                                  Icons.remove_red_eye,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Container(
+                                child: Text(lc.views_count.toString(),
+                                    style: GoogleFonts.quicksand(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black)),
+                              )
+                            ],
+                          ),
+                        ),
                         //---------------------------Mô Tả----------------------------------//
                         Card(
                           shape: RoundedRectangleBorder(
@@ -173,31 +214,7 @@ class Location_Details extends StatelessWidget {
                           title: "Nhu Cầu",
                           size: EdgeInsets.fromLTRB(10, 20, 10, 10),
                         ),
-                        Container(
-                          child: Wrap(
-                            alignment: WrapAlignment.start,
-                            children: <Widget>[
-                              demandcard(
-                                title: "Dã Ngoại",
-                              ),
-                              demandcard(
-                                title: "Phượt",
-                              ),
-                              demandcard(
-                                title: "Du lịch",
-                              ),
-                              demandcard(
-                                title: "Tham Quan",
-                              ),
-                              demandcard(
-                                title: "Tham Quan",
-                              ),
-                              demandcard(
-                                title: "Tham Quan",
-                              )
-                            ],
-                          ),
-                        ),
+                        LocationDemand(),
                         Home_ListTitle(
                           title: 'Danh sách Lưu trú',
                           size: EdgeInsets.fromLTRB(10, 20, 10, 10),

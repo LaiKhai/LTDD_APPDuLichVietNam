@@ -29,9 +29,6 @@ class LoginProvider {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('token', jsonResponse.token);
       Future<String?> token = LoginProvider().getToken();
-      print(token);
-      print('response status:${response.statusCode}');
-      print('response status:${response.body}');
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => HomeScreen()),
           (route) => false);
@@ -88,6 +85,8 @@ class LoginProvider {
       'Authorization': 'Bearer $token',
     });
     print(response.body);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('token');
     return jsonDecode(response.body)['message'];
   }
 }

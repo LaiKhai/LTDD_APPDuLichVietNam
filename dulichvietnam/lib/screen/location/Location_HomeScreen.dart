@@ -4,6 +4,7 @@ import 'package:VietNamTravel/screen/home/components/Home_ListTitle.dart';
 import 'package:VietNamTravel/screen/home/components/Home_Title.dart';
 import 'package:VietNamTravel/screen/location/LocationObject.dart';
 import 'package:VietNamTravel/screen/location/LocationProvider.dart';
+import 'package:VietNamTravel/screen/location/Location_Add.dart';
 import 'package:VietNamTravel/screen/location/Location_List.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +64,10 @@ class _Location_HomeScreenState extends State<Location_HomeScreen> {
           width: 60,
           child: FloatingActionButton(
             backgroundColor: kBackgroundColor,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (ctx) => Location_Add()));
+            },
             child: Icon(
               Icons.add,
               color: Colors.white,

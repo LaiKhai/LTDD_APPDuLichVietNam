@@ -10,6 +10,7 @@ use App\Http\Controllers\LuuTruController;
 use App\Http\Controllers\QuanAnController;
 use App\Http\Controllers\BaiVietController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NhuCauController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +27,8 @@ use App\Http\Controllers\UserController;
 Route::get('login',[LoginController::class,'index'])->name('login');
 Route::post('login',[LoginController::class,'authenticate'])->name('login');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/', [HomeController::class,'index']);
+Route::middleware('can:isAdmin')->group(function(){
+     Route::get('/', [HomeController::class,'index']);
     Route::resource('monan', MonAnController::class);
     Route::resource('user', UserController::class);
     Route::resource('luutru', LuuTruController::class);
@@ -35,5 +36,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('diadanh', DiaDanhController::class);
     Route::resource('vungmien', VungMienController::class);
     Route::resource('baiviet', BaiVietController::class);
+    Route::resource('nhucau', NhuCauController::class);
     Route::post('dangxuat',[LoginController::class,'logout'])->name('dangxuat');
 });
