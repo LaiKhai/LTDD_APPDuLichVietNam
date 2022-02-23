@@ -18,14 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentindex = 0;
   @override
   Widget build(BuildContext context) {
-    final tabs = [
-      Body(),
-      PostScreen(),
-      Location_HomeScreen(),
-      Center(
-        child: Text('Hello3'),
-      )
-    ];
+    final tabs = [Body(), PostScreen(), Location_HomeScreen(), UserProfile()];
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -112,10 +105,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
               icon: Icon(
                   (_currentindex == 3
-                      ? Icons.sports_motorsports_rounded
-                      : Icons.sports_motorsports_outlined),
+                      ? Icons.person_pin_circle_rounded
+                      : Icons.person_pin_circle_outlined),
                   color: Colors.black),
-              title: Text('Nhu Cầu',
+              title: Text('Tài Khoản',
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: _currentindex == 3

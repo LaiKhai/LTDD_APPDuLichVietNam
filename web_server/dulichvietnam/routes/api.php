@@ -19,6 +19,7 @@ Route::apiResource('quanan',QuanAnAPIController::class);
 Route::apiResource('monan',MonAnAPIController::class);
 Route::middleware(['auth:sanctum'])->group(function(){
     Route::apiResource('diadanh',DiaDanhController::class);
+    Route::post('diadanh-detail',[DiaDanhController::class,'DaiDanhDetail']);
     Route::post('user',[AuthController::class,'user']);
     Route::post('logout',[AuthController::class,'logout']);
 });

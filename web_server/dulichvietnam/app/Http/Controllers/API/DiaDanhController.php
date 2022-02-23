@@ -5,20 +5,43 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DiaDanh;
-use App\Models\HinhAnh;
+use App\Models\HinhAnhDiaDanh;
 use App\Models\NhuCau;
 use Illuminate\Support\Facades\Validator;
+
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 
 class DiaDanhController extends Controller
 {
+     public function FixImg(HinhAnhDiaDanh $hinhAnh)
+    {
+        if(Storage::disk('public')->exists($hinhAnh->hinhanh)){
+            $hinhAnh->hinhanh=Storage::url($hinhAnh->hinhanh);
+        }
+        else{
+            $hinhAnh->hinhanh='/admin_view/assets/images/No_Image.png';
+        }
+    }
     public function index(){
         // $diadanh = DiaDanh::orderBy('created_at','desc')->withCount('likes')->get();
-        $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
+        $lstdiadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
         ->select('dia_danhs.*','vung_miens.tenvungmien')->orderBy('created_at','desc')->withCount('likes')->withCount('views')->get();
+        foreach($lstdiadanh as $diaDanh){
+        foreach($diaDanh->hinhAnhs as $ha)
+        {
+           if(Storage::disk('public')->exists($ha->hinhanh)){
+            $ha->hinhanh=Storage::url($ha->hinhanh);
+        }
+        else{
+            $ha->hinhanh='/admin_view/assets/images/No_Image.png';
+        } 
+    }}
+        
         $response =[
             'message'=>'Success',
-            'data'=>$diadanh,
+            'data'=>$lstdiadanh,
         ];
         return response()->json($response,200);
     }
@@ -55,14 +78,13 @@ class DiaDanhController extends Controller
         $diadanh=DiaDanh::create($input);
         $inputImg['hinhanh']='';
         $inputImg['dia_danhs_id']=$diadanh['id'];
-        $inputImg['bai_viets_id']='0';
         $inputImg['trangthai']='1';
         if($request->hasFile('hinhanhs')){
             foreach($request->file('hinhanhs') as $key => $file)
             {
                 $path = $file->store('admin_view/assets/images/diadanh/'.$diadanh['id'],'public');
                 $inputImg['hinhanh']=$path;
-                $hinhAnh=HinhAnh::create($inputImg);
+                $hinhAnh=HinhAnhDiaDanh::create($inputImg);
             }
         }
         $response=[
@@ -77,21 +99,29 @@ class DiaDanhController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function DaiDanhDetail(Request $request)
     {
-        $data=DiaDanh::find($id);
+        
         $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')->where('dia_danhs.id',$id)
         ->select('dia_danhs.*','vung_miens.tenvungmien')->withCount('likes')->withCount('views')->get();
         $NhuCau=NhuCau::join('diadanh_nhucaus','nhu_caus.id','=','diadanh_nhucaus.nhu_caus_id')
-        ->where('diadanh_nhucaus.dia_danh_id',$data['id'])
+        ->where('diadanh_nhucaus.dia_danh_id',$request->id)
         ->select('diadanh_nhucaus.*','nhu_caus.tennhucau')->get();
         if(is_null($diadanh))
         return $response['message']='Địa danh không tìm thấy';
-
+        foreach($diadanh as $da ){
+foreach($da->hinhAnhs as $ha)
+        {
+           $this->FixImg($ha); 
+        }
+        $da->vungMiens->tenvungmien;
+        }
+        
         $response=[
             'message'=>'Success',
             'data'=>$diadanh,
-            'nhucau'=>$NhuCau
+            'nhucau'=>$NhuCau,
+
         ];
         return response()->json($response,200);
     }

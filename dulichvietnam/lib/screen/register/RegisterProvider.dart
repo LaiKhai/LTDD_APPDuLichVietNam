@@ -6,8 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 class RegisterProvider {
-  Future<void> register(BuildContext context, String email, password,
-      confirm_password, name) async {
+  Future<void> register(BuildContext context, String email, String password,
+      String confirm_password, String name) async {
     var url = registerUrl;
     var response = await http.post(Uri.parse(url), headers: <String, String>{
       "Accept": "application/json"

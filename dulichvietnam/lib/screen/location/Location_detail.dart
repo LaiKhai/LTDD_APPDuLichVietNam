@@ -56,7 +56,9 @@ class Location_Details extends StatelessWidget {
                         Stack(
                           children: [
                             //---------------------------Slide Hình Ảnh ----------------------------------//
-                            Carousel_Location(),
+                            Carousel_Location(
+                              location: lc,
+                            ),
                             Positioned(
                               top: 240,
                               left: 180,

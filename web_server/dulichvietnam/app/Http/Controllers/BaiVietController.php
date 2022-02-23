@@ -97,14 +97,15 @@ class BaiVietController extends Controller
         // $user=User::join('bai_viets','bai_viets.user_id','=','users.id')
         // ->where('bai_viets.id',$baiviet)
         // ->select('bai_viets.*','users.email')->get();
-        $diadanh=DiaDanh::join('bai_viets','bai_viets.dia_danhs_id','=','dia_danhs.id')->where('id',);
+        $diadanh=BaiViet::join('dia_danhs','dia_danhs.id','=','bai_viets.dia_danhs_id')->where('bai_viets.id',$baiviet)
+        ->select('dia_danhs.tendiadanh','bai_viets.*')->first();
         $hinhAnh=HinhAnhBaiViet::join('bai_viets','bai_viets.id','=','hinh_anh_bai_viets.bai_viets_id')
         ->select('bai_viets.*','hinh_anh_bai_viets.hinhanh')->get();
         foreach($hinhAnh as $ha)
         {
            $this->FixImg($ha); 
         }
-        return view('baiviet-detail',['baiviet'=>$baiviet,'lstHinhAnh'=>$hinhAnh,'diaDanh'=>$baiviet->diadanh,'User'=>$baiviet->user]);
+        return view('baiviet-detail',['baiviet'=>$baiviet,'lstHinhAnh'=>$hinhAnh,'diaDanh'=>$diadanh,'User'=>$baiviet->user]);
     }
 
     /**

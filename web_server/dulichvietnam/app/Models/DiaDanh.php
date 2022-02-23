@@ -10,7 +10,7 @@ use App\Models\MonAn;
 use App\Models\QuanAn;
 use App\Models\LuuTru;
 use App\Models\BaiViet;
-use App\Models\HinhAnh;
+use App\Models\HinhAnhDiaDanh;
 use App\Models\Likes_DiaDanh;
 use App\Models\DiaDanh_NhuCau;
 
@@ -20,6 +20,7 @@ class DiaDanh extends Model
     use SoftDeletes;
     protected $table='dia_danhs';
     protected $fillable=[
+        'id',
         'tendiadanh',
         'mota',
         'kinhdo',
@@ -27,9 +28,9 @@ class DiaDanh extends Model
         'trangthai',
         'vung_miens_id'
     ];
-    public function vungmien()
+    public function vungMiens()
     {
-        return $this->belongsTo(VungMien::class);
+        return $this->belongsTo(VungMien::class,'vung_miens_id');
     }
     public function monan()
     {
@@ -47,9 +48,9 @@ class DiaDanh extends Model
     {
         return $this->hasMany(BaiViet::class);
     }
-    public function hinhanh()
+    public function hinhAnhs()
     {
-        return $this->hasMany(HinhAnh::class);
+        return $this->hasMany(HinhAnhDiaDanh::class,'dia_danhs_id');
     }
     public function likes()
     {
