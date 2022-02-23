@@ -17,8 +17,8 @@ class VungMien extends Model
         'tenvungmien',
         'trangthai'
     ];
-    public function diadanh()
+    public function diaDanhs()
     {
-        return $this->hasMany(DiaDanh::class);
+        return $this->hasMany(DiaDanh::class,'vung_miens_id');
     }
 }

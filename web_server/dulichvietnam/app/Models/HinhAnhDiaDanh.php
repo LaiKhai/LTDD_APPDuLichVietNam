@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\DiaDanh;
+
 
 class HinhAnhDiaDanh extends Model
 {
@@ -18,6 +20,6 @@ class HinhAnhDiaDanh extends Model
     ];
     public function diadanh()
     {
-        return $this->belongsTo(DiaDanh::class);
+        return $this->belongsTo(DiaDanh::class,'dia_danhs_id');
     }
 }
