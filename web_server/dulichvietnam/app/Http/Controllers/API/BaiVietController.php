@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\DB;
 
 class BaiVietController extends Controller
 {
+    public function FixImg(HinhAnhBaiViet $hinhAnh)
+    {
+        if(Storage::disk('public')->exists($hinhAnh->hinhanh)){
+            $hinhAnh->hinhanh=Storage::url($hinhAnh->hinhanh);
+        }
+        else{
+            $hinhAnh->hinhanh='/admin_view/assets/images/No_Image.png';
+        }
+    }
      /**
      * Store a newly created resource in storage.
      *
