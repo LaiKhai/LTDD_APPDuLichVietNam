@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\DiaDanh;
 use App\Models\VungMien;
 use App\Models\HinhAnh;
+use App\Models\NhuCau;
+use App\Models\DiaDanh_NhuCau;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -43,7 +45,8 @@ class DiaDanhController extends Controller
     public function create()
     {
         $lstvungmien=VungMien::all();
-        return view('diadanh-add',['lstVungMien'=>$lstvungmien]);
+        $nhucau=NhuCau::all();
+        return view('diadanh-add',['lstVungMien'=>$lstvungmien,'lstnhucau'=>$nhucau]);
     }
 
     /**
@@ -54,7 +57,12 @@ class DiaDanhController extends Controller
      */
     public function store(Request $request)
     {
-        $input=$request->all();
+        $input['tendiadanh']=$request->input('tendiadanh');
+        $input['mota']=$request->input('mota');
+        $input['kinhdo']=$request->input('kinhdo');
+        $input['vido']=$request->input('vido');
+        $input['vung_miens_id']=$request->input('vung_miens_id');
+        $input['trangthai']=$request->input('trangthai');
         $validator=$request->validate([
             'tendiadanh'=>'required|string|max:255',
             'mota'=>'required|string',
@@ -63,6 +71,12 @@ class DiaDanhController extends Controller
             'vung_miens_id'=>'required'
         ]);
         $diadanh=DiaDanh::create($input);
+        foreach($request->input('nhucau') as $key =>$value){
+            $inputNhuCau['nhu_caus_id']=$value;
+            $inputNhuCau['dia_danh_id']=$diadanh->id;
+            $nhuCau=DiaDanh_NhuCau::create($inputNhuCau);
+        }
+
         return Redirect::route('diadanh.index',['data'=>$diadanh]);
     }
 
@@ -70,7 +84,7 @@ class DiaDanhController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @param  App\Models\DiaDanh $diaDanh
+     * @param  App\Models\DiaDanh $diadanh
      * @return \Illuminate\Http\Response
      */
     public function show(DiaDanh $diaDanh, $id)
@@ -86,7 +100,10 @@ class DiaDanhController extends Controller
         {
            $this->FixImg($ha); 
         }
-        return view('diadanh-detail',['diadanh'=>$diaDanh,'lstdiadanh'=>$DiaDanh,'lstHinhAnh'=>$hinhAnh]);
+        $NhuCau=NhuCau::join('diadanh_nhucaus','nhu_caus.id','=','diadanh_nhucaus.nhu_caus_id')
+        ->where('diadanh_nhucaus.dia_danh_id',$data['id'])
+        ->select('diadanh_nhucaus.*','nhu_caus.tennhucau')->get();
+        return view('diadanh-detail',['diadanh'=>$diaDanh,'lstdiadanh'=>$DiaDanh,'lstHinhAnh'=>$hinhAnh,'lstNhuCau'=>$NhuCau]);
     }
 
     /**

@@ -6,9 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\BaiViet;
+use App\Models\HinhAnhBaiViet;
+use Illuminate\Support\Facades\DB;
 
 class BaiVietController extends Controller
 {
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+   
     public function createPost(Request $request)
     {
         $baiviet = new baiviet;
@@ -16,7 +25,24 @@ class BaiVietController extends Controller
         $baiviet->dia_danhs_id= $request->dia_danh_ids;
         $baiviet->tieude = $request->tieude;
         $baiviet->mota = $request->mota;
-        
+        $baiviet->hinhanh = $request->file('hinhanh');
+        if($request->hasFile('hinhanh'))
+        {
+            $baiviet->hinhanh =$request->file('hinhanh')->store('admin_view/assets/images/baiviet/','public');
+        } else {
+            return response()->json('image null');
+        }
+        if($baiviet->save()){
+            return response()->json([
+                "BaiViet"=>$baiviet,
+               "message"=>"Thêm thành công"
+            ],201);
+        } else {
+            return response()->json([
+                "BaiViet"=>null,
+                'message'=>'Thêm thất bại'
+            ],400);
+        }
     }
 
 

@@ -47,6 +47,15 @@ Danh sách thông tin món ăn
                         @foreach ($lstVungMien as $vungmien)
                         <option value="{{$vungmien->id}}">{{$vungmien->tenvungmien}}</option>
                         @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelectGender">Nhu Cầu</label>
+                    <select class="form-control chosen-select" name="nhucau[]" id="exampleSelectGender" multiple>
+                        <option value=" ">--chọn nhu cầu--</option>
+                        @foreach ($lstnhucau as $nhucau)
+                        <option value="{{$nhucau->id}}">{{$nhucau->tennhucau}}</option>
+                        @endforeach
 
                     </select>
                 </div>

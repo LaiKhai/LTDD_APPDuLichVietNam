@@ -1,6 +1,7 @@
 import 'package:VietNamTravel/screen/Post/PostScreen.dart';
 import 'package:VietNamTravel/screen/accommodation/accommodation.dart';
 import 'package:VietNamTravel/screen/food/food.dart';
+import 'package:VietNamTravel/screen/home/homescreen.dart';
 import 'package:VietNamTravel/screen/posts/food_post.dart';
 import 'package:VietNamTravel/screen/posts/hotel_post.dart';
 import 'package:VietNamTravel/screen/register/register.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           selectionHandleColor: kBackgroundColor,
         ),
       ),
-      home: const FoodPage(),
+      home: const PostScreen(),
     );
   }
 }

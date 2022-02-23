@@ -15,7 +15,7 @@ class DiaDanhNhuCau extends Migration
     {
         Schema::create('diadanh_nhucaus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dia_danhs_id');
+            $table->foreignId('dia_danh_id');
             $table->foreignId('nhu_caus_id');
             $table->timestamps();
             $table->softDeletes();

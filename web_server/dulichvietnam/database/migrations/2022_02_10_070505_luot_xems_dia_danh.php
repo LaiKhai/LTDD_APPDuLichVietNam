@@ -16,7 +16,7 @@ class LuotXemsDiaDanh extends Migration
         Schema::create('luot_xems_dia_danhs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id');
-            $table->foreignId('dia_danhs_id');
+            $table->foreignId('dia_danh_id');
             $table->timestamps();
         });
     }

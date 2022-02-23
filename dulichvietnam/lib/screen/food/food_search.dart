@@ -141,28 +141,6 @@ class _FoodSearchState extends State<FoodSearch> {
                                 color: Colors.black),
                           ),
                           Container(
-                            padding: EdgeInsets.only(top: 5),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.location_on,
-                                  color: Colors.pink[600],
-                                  size: 20,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Đà Lạt',
-                                    style: GoogleFonts.quicksand(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey[350]),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
                               margin: EdgeInsets.only(top: 8),
                               height: 74,
                               width: 200,
