@@ -23,19 +23,19 @@ class LocationObject {
       required this.views_count,
       required this.hinh_anhs});
   factory LocationObject.fromJson(Map<String, dynamic> json) {
-    var list = (json['data']['hinh_anhs'] ?? []) as List;
+    var list = (json['hinh_anhs'] ?? []) as List;
     List<ImageLocation> lstImageLocation =
         list.map((e) => ImageLocation.fromJson(e)).toList();
     return LocationObject(
-        id: json['data']['id'],
-        tendiadanh: json['data']['tendiadanh'],
-        mota: json['data']['mota'],
-        kinhdo: json['data']['kinhdo'],
-        vido: json['data']['vido'],
-        vung_miens_id: json['data']['vung_miens_id'],
-        tenvungmien: json['vung_miens']['tenvungmien'],
-        likes_count: json['data']['likes_count'],
-        views_count: json['data']['views_count'],
+        id: json['id'],
+        tendiadanh: json['tendiadanh'],
+        mota: json['mota'],
+        kinhdo: json['kinhdo'],
+        vido: json['vido'],
+        vung_miens_id: json['vung_miens_id'],
+        tenvungmien: json['tenvungmien'],
+        likes_count: json['likes_count'],
+        views_count: json['views_count'],
         hinh_anhs: lstImageLocation);
   }
 }
