@@ -26,8 +26,7 @@ class _InputTextState extends State<InputText> {
   Widget build(BuildContext context) {
     Widget alert = AlertDialog(
       title: Text('Đăng nhập không thành công'),
-      content:
-          Text('Bạn nhập kiểu đéo gì mà sai mật khẩu hay tài khoản ròi kìa'),
+      content: Text('Tài khoản or mật khẩu sai'),
       actions: [
         TextButton(
             onPressed: () {

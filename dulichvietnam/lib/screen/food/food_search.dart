@@ -118,7 +118,7 @@ class _FoodSearchState extends State<FoodSearch> {
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.network(
-                        lstFoods[index].hinhanh,
+                        baseUrl + lstFoods[index].hinhanh,
                         fit: BoxFit.cover,
                         width: 140,
                         height: 160,

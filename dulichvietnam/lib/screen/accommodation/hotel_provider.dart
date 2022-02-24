@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 
 class LuuTruProvider {
   static List<LuuTru> parseHotels(String responseBody) {
-    final parse = jsonDecode(responseBody)['data'];
+    final parse = jsonDecode(responseBody)['data'].cast<Map<String, dynamic>>();
     return parse.map<LuuTru>((e) => LuuTru.fromJson(e)).toList();
   }
 

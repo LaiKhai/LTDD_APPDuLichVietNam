@@ -121,6 +121,22 @@ class _HotelInputState extends State<HotelInput> {
             ),
           ),
         ),
+        Container(
+          padding: EdgeInsets.all(50),
+          child: RaisedButton(
+            onPressed: () {
+              setState(() {});
+            },
+            shape: StadiumBorder(),
+            color: kBackgroundColor,
+            textColor: Colors.white,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            child: Text(
+              "Đăng Bài",
+              style: TextStyle(fontSize: 18),
+            ),
+          ),
+        ),
       ],
     );
   }

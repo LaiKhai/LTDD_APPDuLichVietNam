@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class FoodProvider {
   static List<MealObject> parsePost(String responseBody) {
-    final parse = jsonDecode(responseBody).cast<Map<String, dynamic>>();
+    final parse = jsonDecode(responseBody)['data'].cast<Map<String, dynamic>>();
     return parse.map<MealObject>((e) => MealObject.fromJson(e)).toList();
   }
 

@@ -8,11 +8,25 @@ use Illuminate\Http\Request;
 use App\Models\MonAn;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 class MonAnAPIController extends Controller
 {
+    public function fixImg(MonAn $monan){
+        if(Storage::disk('public')->exists($monan->hinhanh))
+        {
+            $monan->hinhanh=Storage::url($monan->hinhanh);
+        }
+        else{
+            $monan->hinhanh='/admin_view/assets/images/No_Image.png';
+        }
+    }
     public function index(Request $request){
         $monan=MonAn::join('dia_danhs','mon_ans.dia_danhs_id','=','dia_danhs.id')
         ->select('mon_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
+        foreach($monan as $ma){
+                $this->fixImg($ma);
+        }
         $response =[
             'message'=>'Success',
             'data'=>$monan,

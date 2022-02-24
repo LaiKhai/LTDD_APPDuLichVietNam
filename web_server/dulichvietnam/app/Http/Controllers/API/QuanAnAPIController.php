@@ -7,12 +7,27 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\QuanAn;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class QuanAnAPIController extends Controller
 {
+    
+    public function fixImg(QuanAn $quanan){
+        if(Storage::disk('public')->exists($quanan->hinhanh))
+        {
+            $quanan->hinhanh=Storage::url($quanan->hinhanh);
+        }
+        else{
+            $quanan->hinhanh='/admin_view/assets/images/No_Image.png';
+        }
+    }
     public function index(Request $request){
         $quanan=QuanAn::join('dia_danhs','quan_ans.dia_danhs_id','=','dia_danhs.id')
         ->select('quan_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
+         foreach($quanan as $qa){
+                $this->fixImg($qa);
+        }
         $response =[
             'message'=>'Success',
             'data'=>$quanan,

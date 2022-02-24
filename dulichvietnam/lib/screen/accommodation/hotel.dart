@@ -28,7 +28,7 @@ class Hotel extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: Image.network(
-                            img + lsLuuTru[index].hinhanh,
+                            baseUrl + lsLuuTru[index].hinhanh,
                             fit: BoxFit.cover,
                           ),
                         ),

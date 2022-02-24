@@ -2,6 +2,8 @@ import 'package:VietNamTravel/screen/food/MealObject.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../constants.dart';
+
 class FoodList extends StatelessWidget {
   final List<MealObject> lstMeal;
   const FoodList({Key? key, required this.lstMeal}) : super(key: key);
@@ -34,7 +36,7 @@ class FoodList extends StatelessWidget {
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
-                  lstMeal[index].hinhanh,
+                  baseUrl + lstMeal[index].hinhanh,
                   fit: BoxFit.cover,
                   width: 140,
                   height: 160,
