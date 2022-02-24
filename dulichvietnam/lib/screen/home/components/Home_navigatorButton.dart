@@ -1,3 +1,4 @@
+import 'package:VietNamTravel/screen/Post/Post_BaiViet.dart';
 import 'package:VietNamTravel/screen/accommodation/accommodation.dart';
 import 'package:VietNamTravel/screen/food/food.dart';
 import 'package:VietNamTravel/screen/home/homescreen.dart';
@@ -46,7 +47,7 @@ class Home_NavigatorButton extends StatelessWidget {
                 width: 40,
               ),
               ButtonSection(
-                  navigator: HomeScreen(),
+                  navigator: PostBaiviet(),
                   title: 'Đăng bài',
                   icon: Icons.add_rounded)
             ],

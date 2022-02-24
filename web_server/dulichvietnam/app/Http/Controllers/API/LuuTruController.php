@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class LuuTruController extends Controller
 {
-    public function FixImg(LuuTru $luutru)
+   public function FixImg(LuuTru $luutru)
     {
         if(Storage::disk('public')->exists($luutru->hinhanh)){
             $luutru->hinhanh=Storage::url($luutru->hinhanh);
@@ -26,11 +26,9 @@ class LuuTruController extends Controller
 
         $luutru=LuuTru::join('dia_danhs','luu_trus.dia_danhs_id','=','dia_danhs.id')
         ->select('luu_trus.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
-    
-        foreach($luutru as $luutru)
-            {
-                $this->FixImg($luutru);
-            }
+        foreach($luutru as $lt){
+                $this->fixImg($lt);
+        }
         $response =[
             'message'=>'Success',
             'data'=>$luutru,

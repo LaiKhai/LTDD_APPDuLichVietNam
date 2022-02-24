@@ -25,7 +25,7 @@ class RestaurentList extends StatelessWidget {
                 height: 90,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(lsRestaurent[index].hinhanh),
+                    image: NetworkImage(baseUrl + lsRestaurent[index].hinhanh),
                     fit: BoxFit.cover, // -> 02
                   ),
                 ),

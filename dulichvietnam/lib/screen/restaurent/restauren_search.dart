@@ -105,7 +105,7 @@ class _RestaurenSearchState extends State<RestaurenSearch> {
                     height: 90,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(lstRes[index].hinhanh),
+                        image: NetworkImage(baseUrl + lstRes[index].hinhanh),
                         fit: BoxFit.cover, // -> 02
                       ),
                     ),

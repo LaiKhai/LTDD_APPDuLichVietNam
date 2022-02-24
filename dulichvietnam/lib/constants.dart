@@ -7,10 +7,14 @@ const kBackgroundColor = Color(0xff41B649);
 const kTextColor = Color(0xffA2A4A6);
 const String assetName = 'assets/DLVN2.svg';
 const String assetLogo = 'assets/images/logoDLVN.svg';
+<<<<<<< HEAD
 const String baseUrl = "http://192.168.1.56:80";
 const String imgUrl =
     "http://192.168.1.16:80/storage/admin_view/assets/images/diadanh/";
 
+=======
+const String baseUrl = "http://192.168.45.157:80";
+>>>>>>> Khai
 const String loginUrl = baseUrl + "/api/login";
 const String logoutUrl = baseUrl + "/api/logout";
 const String registerUrl = baseUrl + "/api/register";

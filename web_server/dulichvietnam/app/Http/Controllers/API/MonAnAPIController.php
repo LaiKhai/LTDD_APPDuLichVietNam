@@ -14,17 +14,21 @@ use Illuminate\Support\Facades\Storage;
 class MonAnAPIController extends Controller
 {
     
-    public function index(Request $request){
-         $lstMonAn=MonAn::join('dia_danhs','mon_ans.dia_danhs_id','=','dia_danhs.id')
-         ->select('mon_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
-        foreach ($lstMonAn as $food){ 
-            $food->diadanh;
+    public function fixImg(MonAn $monan){
+        if(Storage::disk('public')->exists($monan->hinhanh))
+        {
+            $monan->hinhanh=Storage::url($monan->hinhanh);
         }
-        foreach($lstMonAn as $monan)
-            {
-                $this->FixImg($monan);
-            }
-
+        else{
+            $monan->hinhanh='/admin_view/assets/images/No_Image.png';
+        }
+    }
+    public function index(Request $request){
+        $monan=MonAn::join('dia_danhs','mon_ans.dia_danhs_id','=','dia_danhs.id')
+        ->select('mon_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
+        foreach($monan as $ma){
+                $this->fixImg($ma);
+        }
         $response =[
             'message'=>'Success',
             'data'=>$monan,

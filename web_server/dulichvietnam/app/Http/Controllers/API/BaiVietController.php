@@ -54,7 +54,7 @@ class BaiVietController extends Controller
         $input['trangthai']=$request->input('trangthai');
         $input['dia_danhs_id']=$request->input('dia_danhs_id');
         $input['user_id']=$request->input('user_id');
-        $input['hinhanh']=$request->file('hinhanh');
+        $input['hinhanh']='';
         $validator=Validator::make($input,[
             'tieude'=>'required|string|max:255',
             'mota'=>'required|string',
@@ -67,6 +67,10 @@ class BaiVietController extends Controller
             return response()->json($response,404);
         }
         $baiviet=BaiViet::create($input);
+        if($request->hasFile('hinhanh')){
+            $baiviet['hinhanh']=$request->file('hinhanh')->store('admin_view/assets/images/baiviet/'.$baiviet['id'],'public');
+        }
+        $baiviet->save();
         $response=[
             'message'=>'Success',
             'data'=>$baiviet

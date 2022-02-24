@@ -31,30 +31,26 @@ class _Location_HomeScreenState extends State<Location_HomeScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: SingleChildScrollView(
-          child: Stack(
+          child: Column(
             children: [
-              Column(
-                children: [
-                  HeaderBodyPost(size: size, title: 'Địa Danh'),
-                  Home_Title(
-                      title: 'Địa danh nổi bật',
-                      size: EdgeInsets.fromLTRB(10, 10, 120, 10)),
-                  CarouselSlider(
-                      items: lstimg
-                          .map((item) => CardSection_Carousel(img: item))
-                          .toList(),
-                      options: CarouselOptions(
-                        autoPlay: false,
-                        aspectRatio: 1.5,
-                      )),
-                  Home_ListTitle(
-                    title: 'Danh sách địa danh',
-                    size: EdgeInsets.fromLTRB(10, 20, 10, 10),
-                  ),
-                  Column(
-                    children: [LocationFuture()],
-                  )
-                ],
+              HeaderBodyPost(size: size, title: 'Địa Danh'),
+              Home_Title(
+                  title: 'Địa danh nổi bật',
+                  size: EdgeInsets.fromLTRB(10, 10, 120, 10)),
+              CarouselSlider(
+                  items: lstimg
+                      .map((item) => CardSection_Carousel(img: item))
+                      .toList(),
+                  options: CarouselOptions(
+                    autoPlay: false,
+                    aspectRatio: 1.5,
+                  )),
+              Home_ListTitle(
+                title: 'Danh sách địa danh',
+                size: EdgeInsets.fromLTRB(10, 20, 10, 10),
+              ),
+              Container(
+                child: LocationFuture(),
               )
             ],
           ),

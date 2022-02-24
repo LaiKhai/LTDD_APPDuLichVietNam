@@ -59,6 +59,30 @@ Danh sách thông tin món ăn
 
                     </select>
                 </div>
+                <div class="form-group">
+                    <label>Hình ảnh</label>
+                    <div class="input-group col-xs-12 lst increment">
+                        <input class="form-control" type="file" name="images[]" id="images" accept="image/*"
+                            placeholder="Choose images" multiple>
+                        <div class="input-group-btn">
+                            <button id="add" class="btn btn-success" type="button"><i
+                                    class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                        </div>
+                    </div>
+                    <div class="clone hide">
+                        <div id="remove" class="hdtuto control-group lst input-group" style="margin-top:10px">
+                            <input type="file" name="images[]" class="myfrm form-control">
+                            <div class="input-group-btn">
+                                <button class="btn btn-danger" type="button"><i
+                                        class="fldemo glyphicon glyphicon-remove"></i>
+                                    Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    @if ($errors->has('hinhanh'))
+                    <small style="color:red">{{$errors->first('hinhanh')}}</small> <br>
+                    @endif
+                </div>
                 <div class="form-check form-check-flat form-check-primary">
                     <label class="form-check-label" for="trangthai">
                         <input type="checkbox" class="form-check-input" name="trangthai" value=1>Trạng thái</label>
@@ -69,4 +93,37 @@ Danh sách thông tin món ăn
         </div>
     </div>
 </div>
+@endsection
+@section('Script')
+<script>
+    $(function() {
+    // Multiple images preview with JavaScript
+    var previewImages = function(input, imgPreviewPlaceholder) {
+    if (input.files) {
+    var filesAmount = input.files.length;
+    for (i = 0; i < filesAmount; i++) {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+    }
+    reader.readAsDataURL(input.files[i]);
+    }
+    }
+    };
+    $('#images').on('change', function() {
+    previewImages(this, '#Hinh');
+});
+});
+</script>
+<script>
+    $(document).ready(function() {
+      $("#add").click(function(){ 
+          var lsthmtl = $(".clone").html();
+          $(".increment").after(lsthmtl);
+      });
+      $("body").on("click",".btn-danger",function(){ 
+          $(this).parents("#remove").remove();
+      });
+    });
+</script>
 @endsection

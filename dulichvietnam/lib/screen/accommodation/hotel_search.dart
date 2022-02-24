@@ -106,7 +106,7 @@ class _HotelSearchState extends State<HotelSearch> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       child: Image.network(
-                        lstHotels[index].hinhanh,
+                        baseUrl + lstHotels[index].hinhanh,
                         fit: BoxFit.cover,
                       ),
                     ),
