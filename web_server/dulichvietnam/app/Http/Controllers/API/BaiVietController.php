@@ -6,8 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\BaiViet;
+use App\Models\User;
 use App\Models\HinhAnhBaiViet;
 use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class BaiVietController extends Controller
 {
@@ -20,40 +24,6 @@ class BaiVietController extends Controller
             $hinhAnh->hinhanh='/admin_view/assets/images/No_Image.png';
         }
     }
-     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-   
-    public function createPost(Request $request)
-    {
-        $baiviet = new baiviet;
-        $baiviet->user_id= $request->user_id;
-        $baiviet->dia_danhs_id= $request->dia_danh_ids;
-        $baiviet->tieude = $request->tieude;
-        $baiviet->mota = $request->mota;
-        $baiviet->hinhanh = $request->file('hinhanh');
-        if($request->hasFile('hinhanh'))
-        {
-            $baiviet->hinhanh =$request->file('hinhanh')->store('admin_view/assets/images/baiviet/','public');
-        } else {
-            return response()->json('image null');
-        }
-        if($baiviet->save()){
-            return response()->json([
-                "BaiViet"=>$baiviet,
-               "message"=>"Thêm thành công"
-            ],201);
-        } else {
-            return response()->json([
-                "BaiViet"=>null,
-                'message'=>'Thêm thất bại'
-            ],400);
-        }
-    }
-
 
     /**
      * Display a listing of the resource.
@@ -62,10 +32,11 @@ class BaiVietController extends Controller
      */
     public function index()
     {
-        $baiviet=BaiViet::all();
-        $response=[
+        $baiviet=BaiViet::join('users','bai_viets.user_id','=','users.id')
+        ->select('bai_viets.*','users.hoten')->orderBy('created_at','desc')->get();
+        $response =[
             'message'=>'Success',
-            'data'=>$baiviet
+            'data'=>$baiviet,
         ];
         return response()->json($response,200);
     }
@@ -82,6 +53,7 @@ class BaiVietController extends Controller
         $input['mota']=$request->input('mota');
         $input['trangthai']=$request->input('trangthai');
         $input['dia_danhs_id']=$request->input('dia_danhs_id');
+        $input['user_id']=$request->input('user_id');
         $input['hinhanh']=$request->file('hinhanh');
         $validator=Validator::make($input,[
             'tieude'=>'required|string|max:255',

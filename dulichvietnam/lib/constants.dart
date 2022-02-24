@@ -10,6 +10,7 @@ const String assetLogo = 'assets/images/logoDLVN.svg';
 const String baseUrl = "http://192.168.33.73:80";
 const String imgUrl =
     "http://192.168.1.16:80/storage/admin_view/assets/images/diadanh/";
+const String img = "http://192.168.33.73:80/storage/";
 const String loginUrl = baseUrl + "/api/login";
 const String logoutUrl = baseUrl + "/api/logout";
 const String registerUrl = baseUrl + "/api/register";

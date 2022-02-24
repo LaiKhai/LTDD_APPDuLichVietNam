@@ -58,9 +58,7 @@ class _HotelSearchState extends State<HotelSearch> {
   _getData() {
     if (_currentMax + 1 <= lstHotelsTemp.length) {
       for (int i = _currentMax; i < _currentMax + 1; i++) {
-        // if (_currentMax < lstHotelsTemp.length) {
         lstHotels.add(lstHotelsTemp[i]);
-        // }
       }
       _currentMax += 1;
     }
@@ -80,6 +78,7 @@ class _HotelSearchState extends State<HotelSearch> {
               prefixIcon: Icon(
                 Icons.search,
               ),
+              hintText: "Nhập nơi lưu trú cần tìm?",
               border: InputBorder.none,
             ),
             onChanged: (text) {
