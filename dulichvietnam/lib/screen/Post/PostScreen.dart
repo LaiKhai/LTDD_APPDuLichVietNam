@@ -1,5 +1,6 @@
 import 'package:VietNamTravel/constants.dart';
 import 'package:VietNamTravel/screen/Post/HeaderBodyPost.dart';
+import 'package:VietNamTravel/screen/Post/Post_BaiViet.dart';
 import 'package:VietNamTravel/screen/home/components/Home_Emoji.dart';
 import 'package:VietNamTravel/screen/home/components/headerBodyTab.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -231,7 +232,10 @@ class _PostScreenState extends State<PostScreen> {
           width: 60,
           child: FloatingActionButton(
             backgroundColor: kBackgroundColor,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => PostBaiviet()));
+            },
             child: Icon(
               Icons.add,
               color: Colors.white,

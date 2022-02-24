@@ -1,6 +1,7 @@
 import 'package:VietNamTravel/screen/posts/restaurent_post.dart';
 import 'package:VietNamTravel/screen/restaurent/restauren_object.dart';
 import 'package:VietNamTravel/screen/restaurent/restauren_provider.dart';
+import 'package:VietNamTravel/screen/restaurent/restauren_search.dart';
 import 'package:VietNamTravel/screen/restaurent/restaurent_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,6 +46,20 @@ class _RestaurentScreenState extends State<RestaurentScreen> {
                 color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ),
+        actions: [
+          Container(
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RestaurenSearch()));
+              },
+              icon: Icon(
+                Icons.search,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
       ),
       body: Container(
         //Thanh dropdownbutton về nơi lưu trú

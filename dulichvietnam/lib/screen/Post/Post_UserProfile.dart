@@ -21,7 +21,7 @@ class Post_UserProfile extends StatelessWidget {
             )),
         title: Text('Lai Khải',
             style: GoogleFonts.quicksand(
-                fontSize: 15,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.black)),
         trailing: IconButton(

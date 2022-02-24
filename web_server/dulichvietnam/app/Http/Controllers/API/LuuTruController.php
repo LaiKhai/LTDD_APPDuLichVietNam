@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Validator;
 
 class LuuTruController extends Controller
 {
+
     public function index(){
-        $luutru = LuuTru::all();
+        $luutru=LuuTru::join('dia_danhs','luu_trus.dia_danhs_id','=','dia_danhs.id')
+        ->select('luu_trus.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
         $response =[
             'message'=>'Success',
             'data'=>$luutru,
@@ -56,7 +58,8 @@ class LuuTruController extends Controller
      */
     public function show($id)
     {
-        $luutru=LuuTru::find($id);
+        $luutru=LuuTru::join('dia_danhs','luu_trus.dia_danhs_id','=','dia_danhs.id')
+        ->select('luu_trus.*','dia_danhs.tendiadanh')->get();
         if(is_null($luutru))
         return $response['message']='Lưu trú không tìm thấy';
 

@@ -6,9 +6,25 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\BaiViet;
+use App\Models\User;
+use App\Models\HinhAnhBaiViet;
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class BaiVietController extends Controller
 {
+    public function FixImg(HinhAnhBaiViet $hinhAnh)
+    {
+        if(Storage::disk('public')->exists($hinhAnh->hinhanh)){
+            $hinhAnh->hinhanh=Storage::url($hinhAnh->hinhanh);
+        }
+        else{
+            $hinhAnh->hinhanh='/admin_view/assets/images/No_Image.png';
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,10 +32,11 @@ class BaiVietController extends Controller
      */
     public function index()
     {
-        $baiviet=BaiViet::all();
-        $response=[
+        $baiviet=BaiViet::join('users','bai_viets.user_id','=','users.id')
+        ->select('bai_viets.*','users.hoten')->orderBy('created_at','desc')->get();
+        $response =[
             'message'=>'Success',
-            'data'=>$baiviet
+            'data'=>$baiviet,
         ];
         return response()->json($response,200);
     }
@@ -36,6 +53,7 @@ class BaiVietController extends Controller
         $input['mota']=$request->input('mota');
         $input['trangthai']=$request->input('trangthai');
         $input['dia_danhs_id']=$request->input('dia_danhs_id');
+        $input['user_id']=$request->input('user_id');
         $input['hinhanh']=$request->file('hinhanh');
         $validator=Validator::make($input,[
             'tieude'=>'required|string|max:255',

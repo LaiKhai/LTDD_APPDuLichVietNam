@@ -6,13 +6,17 @@ use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MonAn;
+use Illuminate\Support\Facades\Validator;
 
 class MonAnAPIController extends Controller
 {
     public function index(Request $request){
-        $monan = MonAn::all();
-        $response =$monan;
-      
+        $monan=MonAn::join('dia_danhs','mon_ans.dia_danhs_id','=','dia_danhs.id')
+        ->select('mon_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
+        $response =[
+            'message'=>'Success',
+            'data'=>$monan,
+        ];
         return response()->json($response,200); 
     }
     
@@ -51,7 +55,8 @@ class MonAnAPIController extends Controller
      */
     public function show($id)
     {
-       $monan=MonAn::find($id);
+        $monan=MonAn::join('dia_danhs','mon_ans.dia_danhs_id','=','dia_danhs.id')
+        ->select('mon_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
         if(is_null($luutru))
         return $response['message']='Món ăn không tìm thấy';
 

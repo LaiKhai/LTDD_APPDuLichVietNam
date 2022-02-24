@@ -25,7 +25,6 @@
 </head>
 
 <body>
-    <?php echo $__env->yieldContent('Img'); ?>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -76,7 +75,36 @@
                                 <i class="mdi mdi-pencil-outline mr-2"></i>Edit Project </a>
                         </div>
                     </li>
-                    <?php if(auth()->guard()->check()): ?>
+                    <li class="nav-item nav-language dropdown d-none d-md-block">
+                        <a class="nav-link dropdown-toggle" id="languageDropdown" href="#" data-toggle="dropdown"
+                            aria-expanded="false">
+                            <div class="nav-language-icon">
+                                <i class="flag-icon flag-icon-us" title="us" id="us"></i>
+                            </div>
+                            <div class="nav-language-text">
+                                <p class="mb-1 text-black">English</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
+                            <a class="dropdown-item" href="#">
+                                <div class="nav-language-icon mr-2">
+                                    <i class="flag-icon flag-icon-ae" title="ae" id="ae"></i>
+                                </div>
+                                <div class="nav-language-text">
+                                    <p class="mb-1 text-black">Arabic</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <div class="nav-language-icon mr-2">
+                                    <i class="flag-icon flag-icon-gb" title="GB" id="gb"></i>
+                                </div>
+                                <div class="nav-language-text">
+                                    <p class="mb-1 text-black">English</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
                             aria-expanded="false">
@@ -84,7 +112,7 @@
                                 <img src="<?php echo e(asset('admin_view/assets/images/faces/face28.png')); ?>" alt="image">
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black"><?php echo e(Auth::user()->email); ?></p>
+                                <p class="mb-1 text-black">Henry Klein</p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm"
@@ -123,18 +151,14 @@
                                     <span>Lock Account</span>
                                     <i class="mdi mdi-lock ml-1"></i>
                                 </a>
-                                <form action="<?php echo e(route('dangxuat')); ?>" method="post">
-                                    <?php echo csrf_field(); ?>
-                                    <button class="dropdown-item py-1 d-flex align-items-center justify-content-between"
-                                        type="submit">
-                                        <span>Đăng xuất</span>
-                                        <i class="mdi mdi-logout ml-1"></i>
-                                    </button>
-                                </form>
+                                <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"
+                                    href="#">
+                                    <span>Log Out</span>
+                                    <i class="mdi mdi-logout ml-1"></i>
+                                </a>
                             </div>
                         </div>
                     </li>
-                    <?php endif; ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
                             data-toggle="dropdown" aria-expanded="false">
@@ -255,7 +279,7 @@
                 <ul class="nav">
                     <li class="nav-item nav-category">Main</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo e(route('user.index')); ?>">
+                        <a class="nav-link" href="#">
                             <span class="icon-bg"><i class="mdi mdi-account-box-outline"></i></span>
                             <span class="menu-title">Quản lí người dùng</span>
                         </a>
@@ -288,13 +312,13 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('baiviet.index')); ?>">Danh sách
-                                        bài viết</a>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="pages/ui-features/buttons.html">Buttons</a>
                                 </li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('baiviet.create')); ?>">Thêm bài
-                                        viết</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="pages/ui-features/typography.html">Typography</a></li>
                             </ul>
                         </div>
                     </li>
@@ -347,24 +371,12 @@
                                 </li>
                                 <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('quanan.create')); ?>">Thêm quán
                                         ăn</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="pages/ui-features/typography.html">Typography</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic9" aria-expanded="false"
-                            aria-controls="ui-basic">
-                            <span class="icon-bg"><i class="mdi mdi-clipboard-text"></i></span>
-                            <span class="menu-title">Quản lí Nhu cầu</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-basic9">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('nhucau.index')); ?>">Danh sách
-                                        nhu cầu</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+
 
                     <li class="nav-item sidebar-user-actions">
                         <div class="sidebar-user-menu">
