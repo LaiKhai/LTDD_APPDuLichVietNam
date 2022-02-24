@@ -1,5 +1,6 @@
 import 'package:VietNamTravel/screen/Post/PostScreen.dart';
 import 'package:VietNamTravel/screen/accommodation/accommodation.dart';
+import 'package:VietNamTravel/screen/home/homescreen.dart';
 import 'package:VietNamTravel/screen/restaurent/restauren_search.dart';
 import 'package:VietNamTravel/screen/restaurent/retaurents.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           selectionHandleColor: kBackgroundColor,
         ),
       ),
-      home: const AccommationScreen(),
+      home: const SplashScreen(),
     );
   }
 }

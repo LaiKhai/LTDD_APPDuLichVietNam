@@ -9,12 +9,14 @@ use App\Http\Controllers\API\QuanAnAPIController;
 use App\Http\Controllers\API\DiaDanhController;
 use App\Http\Controllers\API\VungMienController;
 use App\Http\Controllers\API\BaiVietController;
+use App\Http\Controllers\API\AnhBaiVietController;
 
 Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);
 Route::apiResource('baiviet',BaiVietController::class);
 Route::apiResource('vungmien', VungMienController::class);
 Route::apiResource('luutru',LuuTruController::class);
+Route::apiResource('hinhanhbaiviet',AnhBaiVietController::class);
 Route::apiResource('quanan',QuanAnAPIController::class);
 Route::apiResource('monan',MonAnAPIController::class);
 Route::middleware(['auth:sanctum'])->group(function(){

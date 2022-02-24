@@ -1,18 +1,29 @@
 import 'dart:io';
 
 import 'package:VietNamTravel/constants.dart';
+import 'package:VietNamTravel/screen/Post/Baiviet_object.dart';
+import 'package:VietNamTravel/screen/Post/api_response.dart';
+import 'package:VietNamTravel/screen/login/loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'baiViet_provider.dart';
+
 class PostBaiviet extends StatefulWidget {
-  const PostBaiviet({Key? key}) : super(key: key);
+  final BaiVietObject? post;
+  final String? title;
+
+  PostBaiviet({this.post, this.title});
 
   @override
   _PostBaivietState createState() => _PostBaivietState();
 }
 
 class _PostBaivietState extends State<PostBaiviet> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _txtMota = TextEditingController();
+  bool _loading = false;
   final _picker = ImagePicker();
   File? _imageFile;
 
@@ -23,6 +34,28 @@ class _PostBaivietState extends State<PostBaiviet> {
         _imageFile = File(pickedFile.path);
       });
     }
+  }
+
+  void _createPost() async {
+    String? image = _imageFile == null ? null : getStringImage(_imageFile);
+    ApiResponse response = await createPost(_txtMota.text, image);
+
+    if (response.error == null) {
+      Navigator.of(context).pop();
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('${response.error}')));
+      setState(() {
+        _loading = !_loading;
+      });
+    }
+  }
+
+  void initState() {
+    if (widget.post != null) {
+      _txtMota.text = widget.post!.mota ?? '';
+    }
+    super.initState();
   }
 
   @override
@@ -70,6 +103,7 @@ class _PostBaivietState extends State<PostBaiviet> {
             padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
             child: Form(
               child: TextFormField(
+                controller: _txtMota,
                 cursorColor: const Color(0XFF0066FF),
                 cursorWidth: 1.5,
                 decoration: const InputDecoration(
@@ -114,7 +148,9 @@ class _PostBaivietState extends State<PostBaiviet> {
             padding: EdgeInsets.all(50),
             child: RaisedButton(
               onPressed: () {
-                setState(() {});
+                if (widget.post == null) {
+                  _createPost();
+                }
               },
               shape: StadiumBorder(),
               color: kBackgroundColor,
@@ -130,4 +166,6 @@ class _PostBaivietState extends State<PostBaiviet> {
       ),
     );
   }
+
+  getStringImage(File? imageFile) {}
 }
