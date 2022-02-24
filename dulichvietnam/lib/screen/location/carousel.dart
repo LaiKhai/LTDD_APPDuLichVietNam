@@ -11,7 +11,9 @@ class Carousel_Location extends StatefulWidget {
   const Carousel_Location({Key? key, required this.location}) : super(key: key);
 
   @override
-  _Carousel_LocationState createState() => _Carousel_LocationState();
+  _Carousel_LocationState createState() {
+    return _Carousel_LocationState(location: location);
+  }
 }
 
 int activeIndex = 0;
@@ -25,14 +27,15 @@ Widget listImage(String lstImg, int index) => ClipRRect(
     ));
 
 class _Carousel_LocationState extends State<Carousel_Location> {
+  final LocationObject location;
+  _Carousel_LocationState({required this.location});
   @override
   Widget build(BuildContext context) {
-    LocationObject? location;
-    int id = location!.id;
+    int id = location.id;
     return CarouselSlider.builder(
         itemCount: location.hinh_anhs.length,
         itemBuilder: (context, index, realIndex) {
-          final imageUrl = imgUrl + "/$id" + location.hinh_anhs[index].hinhanh;
+          final imageUrl = baseUrl + location.hinh_anhs[index].hinhanh;
           return listImage(imageUrl, index);
         },
         options: CarouselOptions(

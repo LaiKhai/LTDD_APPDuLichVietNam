@@ -1,3 +1,4 @@
+import 'package:VietNamTravel/constants.dart';
 import 'package:VietNamTravel/screen/location/LocationObject.dart';
 import 'package:VietNamTravel/screen/location/Location_detail.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class Location_ListLocation extends StatelessWidget {
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image.network(
-                            "https://image.freepik.com/free-photo/vertical-beautiful-buildings-boats-hoi-vietnam_181624-23720.jpg",
+                            baseUrl + lsLocation[index].hinh_anhs[0].hinhanh,
                             fit: BoxFit.cover,
                             width: 400,
                             height: 160,

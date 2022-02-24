@@ -99,13 +99,13 @@ class DiaDanhController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function DaiDanhDetail(Request $request)
+    public function show($id)
     {
-        
+        $data=DiaDanh::find($id);
         $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')->where('dia_danhs.id',$id)
         ->select('dia_danhs.*','vung_miens.tenvungmien')->withCount('likes')->withCount('views')->get();
         $NhuCau=NhuCau::join('diadanh_nhucaus','nhu_caus.id','=','diadanh_nhucaus.nhu_caus_id')
-        ->where('diadanh_nhucaus.dia_danh_id',$request->id)
+        ->where('diadanh_nhucaus.dia_danh_id',$data['id'])
         ->select('diadanh_nhucaus.*','nhu_caus.tennhucau')->get();
         if(is_null($diadanh))
         return $response['message']='Địa danh không tìm thấy';
@@ -114,7 +114,7 @@ foreach($da->hinhAnhs as $ha)
         {
            $this->FixImg($ha); 
         }
-        $da->vungMiens->tenvungmien;
+        $da->vungMiens;
         }
         
         $response=[

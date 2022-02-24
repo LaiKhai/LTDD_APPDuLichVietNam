@@ -8,6 +8,7 @@ use App\Models\DiaDanh;
 use App\Models\VungMien;
 use App\Models\HinhAnh;
 use App\Models\NhuCau;
+use App\Models\HinhAnhDiaDanh;
 use App\Models\DiaDanh_NhuCau;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 
 class DiaDanhController extends Controller
 {
-    public function FixImg(HinhAnh $hinhAnh)
+    public function FixImg(HinhAnhDiaDanh $hinhAnh)
     {
         if(Storage::disk('public')->exists($hinhAnh->hinhanh)){
             $hinhAnh->hinhanh=Storage::url($hinhAnh->hinhanh);
@@ -71,13 +72,24 @@ class DiaDanhController extends Controller
             'vung_miens_id'=>'required'
         ]);
         $diadanh=DiaDanh::create($input);
+        $inputImg['hinhanh']='';
+        $inputImg['dia_danhs_id']=$diadanh['id'];
+        $inputImg['trangthai']='1';
+        if($request->hasFile('images')){
+            foreach($request->file('images') as $key => $file)
+            {
+                $path = $file->store('admin_view/assets/images/diadanh/'.$diadanh['id'],'public');
+                $inputImg['hinhanh']=$path;
+                $hinhAnh=HinhAnhDiaDanh::create($inputImg);
+            }
+        }
         foreach($request->input('nhucau') as $key =>$value){
             $inputNhuCau['nhu_caus_id']=$value;
             $inputNhuCau['dia_danh_id']=$diadanh->id;
             $nhuCau=DiaDanh_NhuCau::create($inputNhuCau);
         }
 
-        return Redirect::route('diadanh.index',['data'=>$diadanh]);
+        return Redirect::route('diadanh.index',['data'=>$diadanh,'lstHinhAnh'=>$hinhAnh]);
     }
 
     /**
@@ -93,9 +105,9 @@ class DiaDanhController extends Controller
         $DiaDanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
         ->where('dia_danhs.id',$data['id'])
         ->select('dia_danhs.*','vung_miens.tenvungmien')->get();
-        $hinhAnh=HinhAnh::join('dia_danhs','dia_danhs.id','=','hinh_anhs.dia_danhs_id')
+        $hinhAnh=HinhAnhDiaDanh::join('dia_danhs','dia_danhs.id','=','hinh_anh_dia_danhs.dia_danhs_id')
         ->where('dia_danhs.id',$data['id'])
-        ->select('dia_danhs.*','hinh_anhs.hinhanh')->get();
+        ->select('dia_danhs.*','hinh_anh_dia_danhs.hinhanh')->get();
         foreach($hinhAnh as $ha)
         {
            $this->FixImg($ha); 

@@ -37,6 +37,6 @@ class LocationProvider {
       'Accept': 'application/json',
       'Authorization': 'Bearer ${token!}'
     });
-    return LocationObject.fromJson(jsonDecode(response.body));
+    return LocationObject.fromJson(jsonDecode(response.body)['data'][0]);
   }
 }

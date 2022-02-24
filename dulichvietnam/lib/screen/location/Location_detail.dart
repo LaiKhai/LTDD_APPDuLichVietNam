@@ -28,15 +28,6 @@ class Location_Details extends StatelessWidget {
       'https://image.freepik.com/free-photo/beautiful-shot-kissing-rocks-ha-long-bay-vietnam_181624-22125.jpg'
     ];
 
-    Widget buildIndicator() => AnimatedSmoothIndicator(
-          activeIndex: activeIndex,
-          count: lstimg.length,
-          effect: SlideEffect(
-              dotHeight: 10,
-              dotWidth: 10,
-              activeDotColor: Colors.white,
-              dotColor: Colors.black38),
-        );
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -59,13 +50,7 @@ class Location_Details extends StatelessWidget {
                             Carousel_Location(
                               location: lc,
                             ),
-                            Positioned(
-                              top: 240,
-                              left: 180,
-                              child: Container(
-                                  margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                                  child: buildIndicator()),
-                            ),
+
                             Positioned(
                                 top: 30,
                                 child: Container(
