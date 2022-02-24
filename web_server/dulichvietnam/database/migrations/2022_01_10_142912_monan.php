@@ -16,7 +16,7 @@ class Monan extends Migration
         Schema::create('mon_ans', function (Blueprint $table) {
             $table->id();
             $table->string('ten',50);
-            $table->string('mota')->nullable();
+            $table->longText('mota')->nullable();
             $table->string('hinhanh')->nullable();
             $table->enum('trangthai',[0,1,2]);
             $table->foreignId('dia_danhs_id');

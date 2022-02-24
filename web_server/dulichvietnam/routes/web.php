@@ -34,6 +34,7 @@ Route::middleware('can:isAdmin')->group(function(){
     Route::resource('luutru', LuuTruController::class);
     Route::resource('quanan', QuanAnController::class);
     Route::resource('diadanh', DiaDanhController::class);
+    Route::patch('update', [DiaDanhController::class,"update2"])->name('update');
     Route::resource('vungmien', VungMienController::class);
     Route::resource('baiviet', BaiVietController::class);
     Route::resource('nhucau', NhuCauController::class);

@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    @yield('CSS_MoTa')
     @yield('Img')
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->

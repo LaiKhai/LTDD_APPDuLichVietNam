@@ -67,7 +67,7 @@ Danh sách thông tin Địa Danh
                             <td>{{$item->id}}</td>
                             <td>{{$item->tendiadanh}}</td>
                             <td>
-                                <div style="width: 100px;white-space: normal;">{{$item->mota}}</div>
+                                <div id="MoTa_Content">{{$item->mota}}</div>
                             </td>
                             <td>{{$item->tenvungmien}}</td>
                             <td>{{$item->kinhdo}}</td>
@@ -178,4 +178,121 @@ Danh sách thông tin Địa Danh
         </div>
     </div>
 </div>
+{{------------------------------------------------ Danh sách Vùng Miền - End ----------------------------------------}}
+{{------------------------------------------------ Duyệt Địa Danh ----------------------------------------}}
+<div class="page-header">
+    <h3 class="page-title">@yield('title')</h3>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Dashboar</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Thông tin địa danh</li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Thông tin địa danh đề xuất</h4>
+                </p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-center"> ID </th>
+                            <th class="text-center"> Tên </th>
+                            <th class="text-center"> Mô tả </th>
+                            <th class="text-center"> Tên vùng miền </th>
+                            <th class="text-center"> Kinh độ </th>
+                            <th class="text-center"> Vĩ độ </th>
+                            <th class="text-center"> trạng thái </th>
+                            <th class="text-center"> Chức năng </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($lstduyet as $duyet)
+                        <tr>
+                            <td>{{$duyet->id}}</td>
+                            <td>{{$duyet->tendiadanh}}</td>
+                            <td>
+                                <div id="MoTa_Content">{{$duyet->mota}}</div>
+                            </td>
+                            <td>{{$duyet->tenvungmien}}</td>
+                            <td>{{$duyet->kinhdo}}</td>
+                            <td>{{$duyet->vido}}</td>
+                            <td>
+                                @if ($duyet->trangthai==1)
+                                <span class="badge bg-success">Tồn tại</span>
+                                @endif
+                                @if ($duyet->trangthai==0)
+                                <span class="badge bg-danger">Đã xóa</span>
+                                @endif
+                                @if ($duyet->trangthai==2)
+                                <span class="badge bg-warning">Đang xử lí</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if($duyet->trangthai==1)
+                                <a type="button" class="btn btn-outline-warning"
+                                    href="{{route('diadanh.show',['diadanh'=>$duyet])}}">chi
+                                    tiết</a>
+                                @endif
+                                @if($duyet->trangthai==2)
+                                <form class="forms-sample" method="post"
+                                    action="{{route('diadanh.update',['diadanh'=>$duyet])}}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PATCH')
+                                    <input type="hidden" class="form-control" name="id" id="exampleInputUsername2"
+                                        value="{{$duyet->id}}">
+                                    <input type="hidden" name="tendiadanh" class="form-control" id="exampleInputEmail2"
+                                        value="{{$duyet->tendiadanh}}">
+                                    <input type="hidden" name="mota" value="{{$duyet->mota}}">
+                                    <input type="hidden" name="vung_miens_id" class="form-control"
+                                        id="exampleInputPassword2" value="{{$duyet->vung_miens_id}}">
+                                    <input type="hidden" name="kinhdo" class="form-control" id="exampleInputEmail2"
+                                        value="{{$duyet->kinhdo}}">
+                                    <input type="hidden" name="vido" class="form-control" id="exampleInputEmail2"
+                                        value="{{$duyet->vido}}">
+                                    <input type="hidden" name="trangthai" class="form-check-input pl-2" value="1">
+                                    <button type="submit" class="btn btn-warning mr-2">Duyệt</button>
+                                </form>
+                                @endif
+
+                            <td>
+                                <a type="button" class="btn btn-outline-success"
+                                    href="{{route('diadanh.edit',['diadanh'=>$duyet])}}">Sửa
+                                </a>
+                            </td>
+                            <td>
+                                <form method="POST" action="{{route('diadanh.destroy',['diadanh'=>$duyet])}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-danger">Xóa</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('CSS_MoTa')
+<style>
+    #MoTa_Content {
+        white-space: nowrap;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #MoTa_Content:hover {
+        overflow: visible;
+        white-space: normal;
+        width: 300px;
+    }
+</style>
 @endsection

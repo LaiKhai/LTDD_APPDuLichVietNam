@@ -22,12 +22,6 @@ class Location_Details extends StatelessWidget {
   Widget build(BuildContext context) {
     final int activeIndex = 0;
 
-    final List<String> lstimg = [
-      'https://image.freepik.com/free-photo/vertical-beautiful-buildings-boats-hoi-vietnam_181624-23720.jpg',
-      'https://image.freepik.com/free-photo/vacation-stone-vietnam-fresh-green-china_1417-1360.jpg',
-      'https://image.freepik.com/free-photo/beautiful-shot-kissing-rocks-ha-long-bay-vietnam_181624-22125.jpg'
-    ];
-
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(

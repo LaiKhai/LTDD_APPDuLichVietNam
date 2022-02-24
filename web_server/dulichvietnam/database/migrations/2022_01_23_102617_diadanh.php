@@ -16,9 +16,9 @@ class Diadanh extends Migration
         Schema::create('dia_danhs', function (Blueprint $table) {
             $table->id();
             $table->string('tendiadanh');
-            $table->string('mota');
-            $table->string('kinhdo');
-            $table->string('vido');
+            $table->longText('mota');
+            $table->string('kinhdo')->nullable();
+            $table->string('vido')->nullable();
             $table->foreignId('vung_miens_id');
             $table->integer('trangthai');
             $table->timestamps();

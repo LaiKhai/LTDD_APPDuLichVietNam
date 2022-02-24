@@ -15,17 +15,19 @@ class _LocationFutureState extends State<LocationFuture> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return FutureBuilder<List<LocationObject>>(
-        future: LocationProvider.fetchLocation(context),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Location_ListLocation(lsLocation: snapshot.data!);
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Có lỗi rồi'),
-            );
-          }
-          return Center(child: CircularProgressIndicator());
-        });
+    return Container(
+        margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+        child: FutureBuilder<List<LocationObject>>(
+            future: LocationProvider.fetchLocation(context),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Location_ListLocation(lsLocation: snapshot.data!);
+              } else if (snapshot.hasError) {
+                return Center(
+                  child: Text('Có lỗi rồi'),
+                );
+              }
+              return Center(child: CircularProgressIndicator());
+            }));
   }
 }

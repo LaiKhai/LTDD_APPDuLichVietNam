@@ -26,7 +26,7 @@ class DiaDanhController extends Controller
     }
     public function index(){
         // $diadanh = DiaDanh::orderBy('created_at','desc')->withCount('likes')->get();
-        $lstdiadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
+        $lstdiadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')->where('dia_danhs.trangthai',1)
         ->select('dia_danhs.*','vung_miens.tenvungmien')->orderBy('created_at','desc')->withCount('likes')->withCount('views')->get();
         foreach($lstdiadanh as $diaDanh){
         foreach($diaDanh->hinhAnhs as $ha)
@@ -62,8 +62,6 @@ class DiaDanhController extends Controller
         $validator = Validator::make($input, [
             'tendiadanh' => 'required|string|max:255',
             'mota' => 'required|string',
-            'kinhdo' => 'required',
-            'vido' => 'required',
             'vung_miens_id' => 'required'
         ]);
         if($validator->fails()){

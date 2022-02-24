@@ -4,8 +4,8 @@ class LocationObject {
   int id;
   String tendiadanh;
   String mota;
-  String kinhdo;
-  String vido;
+  String? kinhdo;
+  String? vido;
   int vung_miens_id;
   String tenvungmien;
   int likes_count;

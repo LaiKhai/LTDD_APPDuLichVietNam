@@ -13,6 +13,7 @@ use App\Models\DiaDanh_NhuCau;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
 
 class DiaDanhController extends Controller
 {
@@ -32,10 +33,12 @@ class DiaDanhController extends Controller
      */
     public function index()
     {
-        $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')
+        $diadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')->where('dia_danhs.trangthai',1)
+        ->select('dia_danhs.*','vung_miens.tenvungmien')->get();
+        $duyetdiadanh=DiaDanh::join('vung_miens','dia_danhs.vung_miens_id','=','vung_miens.id')->where('dia_danhs.trangthai',2)
         ->select('dia_danhs.*','vung_miens.tenvungmien')->get();
         $vungMien=VungMien::all();
-        return view('diadanh-index',['data'=>$diadanh,'lstVungMien'=>$vungMien]);
+        return view('diadanh-index',['data'=>$diadanh,'lstVungMien'=>$vungMien,'lstduyet'=>$duyetdiadanh]);
     }
 
     /**
@@ -150,6 +153,7 @@ class DiaDanhController extends Controller
         $diadanh['kinhdo']=$input['kinhdo'];
         $diadanh['vido']=$input['vido'];
         $diadanh['vung_miens_id']=$input['vung_miens_id'];
+        $diadanh['trangthai']=$input['trangthai'];
         $diadanh->save();
         return Redirect::route('diadanh.index',['data'=>$diadanh]);
     }
@@ -165,4 +169,5 @@ class DiaDanhController extends Controller
         $diadanh=DiaDanh::find($id)->delete();
         return Redirect::route('diadanh.index');
     }
+   
 }

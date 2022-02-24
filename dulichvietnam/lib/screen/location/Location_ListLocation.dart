@@ -25,27 +25,29 @@ class Location_ListLocation extends StatelessWidget {
                     ),
                     margin: EdgeInsets.all(10),
                     child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Location_Details(
-                                    locationID: lsLocation[index].id)));
-                      },
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.network(
-                            baseUrl + lsLocation[index].hinh_anhs[0].hinhanh,
-                            fit: BoxFit.cover,
-                            width: 400,
-                            height: 160,
-                            color: Colors.black.withOpacity(0.4),
-                            colorBlendMode: BlendMode.darken,
-                          )),
-                    )),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Location_Details(
+                                      locationID: lsLocation[index].id)));
+                        },
+                        child: Container(
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.network(
+                                baseUrl +
+                                    lsLocation[index].hinh_anhs[0].hinhanh,
+                                fit: BoxFit.cover,
+                                width: 400,
+                                height: 160,
+                                color: Colors.black.withOpacity(0.4),
+                                colorBlendMode: BlendMode.darken,
+                              )),
+                        ))),
                 Positioned(
                     top: 110,
-                    right: 140,
+                    right: 100,
                     child: Container(
                       height: 136,
                       width: size.width - 170,
