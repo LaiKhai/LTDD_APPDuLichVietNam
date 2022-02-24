@@ -6,13 +6,25 @@ use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MonAn;
+use App\Models\DiaDanh;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class MonAnAPIController extends Controller
 {
+    
     public function index(Request $request){
-        $monan=MonAn::join('dia_danhs','mon_ans.dia_danhs_id','=','dia_danhs.id')
-        ->select('mon_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
+         $lstMonAn=MonAn::join('dia_danhs','mon_ans.dia_danhs_id','=','dia_danhs.id')
+         ->select('mon_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
+        foreach ($lstMonAn as $food){ 
+            $food->diadanh;
+        }
+        foreach($lstMonAn as $monan)
+            {
+                $this->FixImg($monan);
+            }
+
         $response =[
             'message'=>'Success',
             'data'=>$monan,
@@ -57,7 +69,7 @@ class MonAnAPIController extends Controller
     {
         $monan=MonAn::join('dia_danhs','mon_ans.dia_danhs_id','=','dia_danhs.id')
         ->select('mon_ans.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
-        if(is_null($luutru))
+        if(is_null($monan))
         return $response['message']='Món ăn không tìm thấy';
 
         $response=[

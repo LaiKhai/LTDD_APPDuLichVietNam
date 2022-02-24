@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\DiaDanh;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -22,6 +22,6 @@ class LuuTru extends Model
         'dia_danhs_id'
     ];
     public function diadanh(){
-        return $this->belongsTo(DiaDanh::class);
+        return $this->belongsTo(DiaDanh::class,'dia_danhs_id');
     }
 }

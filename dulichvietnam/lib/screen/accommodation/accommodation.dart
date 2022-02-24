@@ -52,7 +52,7 @@ class _AccommationScreenState extends State<AccommationScreen> {
         ],
       ),
       body: FutureBuilder<List<LuuTru>>(
-          future: LuuTruProvider.fetchPosts(),
+          future: LuuTruProvider.getAllHotel(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Hotel(lsLuuTru: snapshot.data!);

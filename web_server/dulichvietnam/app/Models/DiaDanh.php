@@ -50,7 +50,7 @@ class DiaDanh extends Model
     }
     public function hinhAnhs()
     {
-        return $this->hasMany(HinhAnhDiaDanh::class,'dia_danhs_id');
+        return $this->hasMany(HinhAnhDiaDanh::class);
     }
     public function likes()
     {
