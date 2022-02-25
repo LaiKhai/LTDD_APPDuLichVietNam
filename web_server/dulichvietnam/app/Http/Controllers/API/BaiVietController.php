@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\BaiViet;
 use App\Models\User;
+use App\Models\DiaDanh;
 use App\Models\HinhAnhBaiViet;
 use Illuminate\Support\Facades\DB;
 
@@ -32,14 +33,24 @@ class BaiVietController extends Controller
      */
     public function index()
     {
-        $baiviet=BaiViet::join('users','bai_viets.user_id','=','users.id')
+        $lstbaiviet=BaiViet::join('users','bai_viets.user_id','=','users.id')
         ->select('bai_viets.*','users.hoten')->orderBy('created_at','desc')->get();
+        foreach($lstbaiviet as $baiviet){
+            {
+               if(Storage::disk('public')->exists($baiviet->hinhanh)){
+                $baiviet->hinhanh=Storage::url($baiviet->hinhanh);
+            }
+            else{
+                $baiviet->hinhanh='/admin_view/assets/images/No_Image.png';
+            } 
+        }
         $response =[
             'message'=>'Success',
-            'data'=>$baiviet,
+            'data'=>$lstbaiviet,
         ];
         return response()->json($response,200);
     }
+}
 
     /**
      * Store a newly created resource in storage.
@@ -54,10 +65,11 @@ class BaiVietController extends Controller
         $input['trangthai']=$request->input('trangthai');
         $input['dia_danhs_id']=$request->input('dia_danhs_id');
         $input['user_id']=$request->input('user_id');
-        $input['hinhanh']='';
         $validator=Validator::make($input,[
             'tieude'=>'required|string|max:255',
             'mota'=>'required|string',
+            'dia_danhs_id'=>'required',
+            'user_id'=>'required'
         ]);
         if($validator->fails()){
             if(!empty($validator->errors())){
@@ -67,15 +79,21 @@ class BaiVietController extends Controller
             return response()->json($response,404);
         }
         $baiviet=BaiViet::create($input);
-        if($request->hasFile('hinhanh')){
-            $baiviet['hinhanh']=$request->file('hinhanh')->store('admin_view/assets/images/baiviet/'.$baiviet['id'],'public');
+        $inputImg['hinhanh']='';
+        $inputImg['trangthai']='1';
+        if($request->hasFile('hinhanhs')){
+            foreach($request->file('hinhanhs') as $key => $file)
+            {
+                $path = $file->store('admin_view/assets/images/baiviet/'.$baiviet['id'],'public');
+                $inputImg['hinhanh']=$path;
+                $hinhAnh=HinhAnhBaiViet::create($inputImg);
+            }
         }
-        $baiviet->save();
         $response=[
-            'message'=>'Success',
-            'data'=>$baiviet
+                'message'=>'Success',
+                'data'=>$baiviet
         ];
-        return response()->json($response,200);  
+        return response()->json($response,200);
     }
 
     /**

@@ -27,6 +27,19 @@ class LuuTruProvider {
     });
     return parseHotels(response.body);
   }
+  /*static Future<List<dynamic>> parseHotels() async {
+    var response = await http
+        .get(Uri.parse(hotelUrl), headers: {"Accept": "application/json"});
+    var data = json.decode(response.body);
+    return data['hotel'];
+  }
+
+  static Future<List<LuuTru>> getAllHotel() async {
+    List<LuuTru> lsResult = [];
+    List<dynamic> data = await parseHotels();
+    lsResult = data.map((e) => LuuTru.fromJson(e)).toList();
+    return lsResult;
+  }*/
 
   //Tìm kiếm lưu trú
   static Future<List<LuuTru>> searchHotels(String searchString) async {

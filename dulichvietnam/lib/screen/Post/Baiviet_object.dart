@@ -8,9 +8,9 @@ class BaiVietObject {
   final String tendiadanh;
   final String tieude;
   final String mota;
-  List<AnhbvObject> anh = [];
+  AnhbvObject? hinhanh;
   BaiVietObject(this.id, this.user_id, this.hoten, this.dia_danhs_id,
-      this.tendiadanh, this.tieude, this.mota, this.anh);
+      this.tendiadanh, this.tieude, this.mota, this.hinhanh);
   BaiVietObject.fromjson(Map<String, dynamic> r)
       : id = r["id"],
         user_id = r["user_id"],
@@ -19,5 +19,5 @@ class BaiVietObject {
         tendiadanh = r["tendiadanh"],
         tieude = r["tieude"],
         mota = r["mota"],
-        anh = r["anh"];
+        hinhanh = r["hinhanh"];
 }

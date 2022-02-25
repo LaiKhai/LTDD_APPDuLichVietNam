@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Models\LuuTru;
+use App\Models\DiaDanh;
 use Illuminate\Support\Facades\Validator;
-
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+
 class LuuTruController extends Controller
 {
    public function FixImg(LuuTru $luutru)
@@ -22,6 +23,7 @@ class LuuTruController extends Controller
         }
     }
     public function index(){
+
         $luutru=LuuTru::join('dia_danhs','luu_trus.dia_danhs_id','=','dia_danhs.id')
         ->select('luu_trus.*','dia_danhs.tendiadanh')->orderBy('created_at','desc')->get();
         foreach($luutru as $lt){
